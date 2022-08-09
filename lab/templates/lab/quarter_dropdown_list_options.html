@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for quarter in quarters %}
+<option value="{{ quarter.pk }}">{{ quarter.quarter|time:'H:i' }}</option>
+{% endfor %}

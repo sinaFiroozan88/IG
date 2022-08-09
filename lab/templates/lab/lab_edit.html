@@ -1,0 +1,199 @@
+{% extends 'shared/_base.html' %}
+
+{% block content %}
+{#    <h2>New / Edit Entry</h2>#}
+    <form method="POST"  class="post-form">
+        {% csrf_token %}
+{#        {{ form.media }}#}
+
+{#        <div class="table-responsive">#}
+{#        <table class="table table-striped table-hover table-bordered tab-pane text-center">#}
+{#          <thead>#}
+{#            <tr>#}
+{#              <th>auther</th>#}
+{#              <th>c_date</th>#}
+{#              <th>hour</th>#}
+{#              <th>line</th>#}
+{#              <th>mine</th>#}
+{#              <th>prod silo</th>#}
+{#              <th>init setting</th>#}
+{#              <th>final setting</th>#}
+{#              <th>einstrumenge</th>#}
+{#              <th>CW RM</th>#}
+{#              <th>purity RM</th>#}
+{#              <th>CW</th>#}
+{#              <th>WG ratio</th>#}
+{#              <th>63 m</th>#}
+{#              <th>200 m</th>#}
+{#              <th>500 m</th>#}
+{#              <th>s anhidrite</th>#}
+{#              <th>hemihidrate</th>#}
+{#              <th>ns anhidrite</th>#}
+{#              <th>non-conf</th>#}
+{#              <th>CS</th>#}
+{#              <th>EI</th>#}
+{#              <th>FM</th>#}
+{#              <th>FS</th>#}
+{#              <th>IS</th>#}
+{#              <th>P6</th>#}
+{#              <th>P2</th>#}
+{#              <th>P5</th>#}
+{#              <th>action</th>#}
+{#              <th>p_date</th>#}
+{#              <th>remark</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{#          <tbody class="text-center ">#}
+{#            <tr>#}
+{#              <td>{{ form.auther }}</td>#}
+{#              <td>{{ form.created_date }}</td>#}
+{#              <td>{{ form.hour }}</td>#}
+{#              <td>{{ form.line }}</td>#}
+{#              <td>{{ form.mine }}</td>#}
+{#              <td>{{ form.product_silo }}</td>#}
+{#              <td>{{ form.initial_setting_time }}</td>#}
+{#              <td>{{ form.final_setting_time }}</td>#}
+{#              <td>{{ form.einstrumenge }}</td>#}
+{#              <td>{{ form.crystal_water_rawmat }}</td>#}
+{#              <td>{{ form.purity_rm }}</td>#}
+{#              <td>{{ form.crystal_water_stucco }}</td>#}
+{#              <td>{{ form.water_gypsum_ratio }}</td>#}
+{#              <td>{{ form.retained_63_micron }}</td>#}
+{#              <td>{{ form.retained_200_micron }}</td>#}
+{#              <td>{{ form.retained_500_micron }}</td>#}
+{#              <td>{{ form.soluble_anhydrite }}</td>#}
+{#              <td>{{ form.hemihydrate }}</td>#}
+{#              <td>{{ form.low_solubility_anhydrite }}</td>#}
+{#              <td>{{ form.non_conformity }}</td>#}
+{#              <td>{{ form.nonconf_CS }}</td>#}
+{#              <td>{{ form.nonconf_EI }}</td>#}
+{#              <td>{{ form.nonconf_FM }}</td>#}
+{#              <td>{{ form.nonconf_FS }}</td>#}
+{#              <td>{{ form.nonconf_IS }}</td>#}
+{#              <td>{{ form.nonconf_P6 }}</td>#}
+{#              <td>{{ form.nonconf_P2 }}</td>#}
+{#              <td>{{ form.nonconf_P5 }}</td>#}
+{#              <td>{{ form.action }}</td>#}
+{#              <td>{{ form.published_date }}</td>#}
+{#              <td>{{ form.remarks }}</td>#}
+{#            </tr>#}
+{#          </tbody>#}
+{#        </table>#}
+{#              </div>#}
+{#  {{ form.as_table }}#}
+
+        <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="align-top align-text-top">
+            <tr>
+              <th>c_date</th>
+              <th>hour</th>
+              <th>line</th>
+              <th>mine</th>
+              <th>prod silo</th>
+              <th>init setting</th>
+              <th>final setting</th>
+              <th>einstru menge</th>
+              <th>CW RM</th>
+              <th>purity RM</th>
+              <th>CW</th>
+              <th>WG ratio</th>
+            </tr>
+          </thead>
+          <tbody class="text-center; font-weight-normal ">
+
+            <tr class="m-0">
+              <td class="p-0 m-0">{{ form.created_date }}</td>
+              <td class="p-0 m-0">{{ form.hour }}</td>
+              <td class="p-0 m-0">{{ form.line }}</td>
+              <td class="p-0 m-0">{{ form.mine }}</td>
+              <td class="p-0 m-0">{{ form.product_silo }}</td>
+              <td id="IS-DUR" class="d-inline p-0 m-0">{{ form.initial_setting_time }}</td>
+              <td id="FS-DUR" class="m-0 p-0 m-0">{{ form.final_setting_time }}</td>
+              <td class="p-0 m-0">{{ form.einstrumenge }}</td>
+              <td class="p-0 m-0">{{ form.crystal_water_rawmat }}</td>
+              <td class="p-0 m-0">{{ form.purity_rm }}</td>
+              <td class="p-0 m-0">{{ form.crystal_water_stucco }}</td>
+              <td class="p-0 m-0">{{ form.water_gypsum_ratio }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+        </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center table-hover">
+          <thead>
+            <tr>
+              <th>63 m</th>
+              <th>200 m</th>
+              <th>500 m</th>
+              <th>s anhidrite</th>
+              <th>hemihidrate</th>
+              <th>ns anhidrite</th>
+              <th>non-conf</th>
+              <th>CS</th>
+              <th>EI</th>
+              <th>FM</th>
+              <th>FS</th>
+              <th>IS</th>
+              <th>P6</th>
+              <th>P2</th>
+              <th>P5</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          <tbody class="text-center ">
+
+            <tr>
+              <td>{{ form.retained_63_micron }}</td>
+              <td>{{ form.retained_200_micron }}</td>
+              <td>{{ form.retained_500_micron }}</td>
+              <td>{{ form.soluble_anhydrite }}</td>
+              <td>{{ form.hemihydrate }}</td>
+              <td>{{ form.low_solubility_anhydrite }}</td>
+              <td>{{ form.non_conformity }}</td>
+              <td>{{ form.nonconf_CS }}</td>
+              <td>{{ form.nonconf_EI }}</td>
+              <td>{{ form.nonconf_FM }}</td>
+              <td>{{ form.nonconf_FS }}</td>
+              <td>{{ form.nonconf_IS }}</td>
+              <td>{{ form.nonconf_P6 }}</td>
+              <td>{{ form.nonconf_P2 }}</td>
+              <td>{{ form.nonconf_P5 }}</td>
+              <td>{{ form.action }}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center table-hover">
+          <thead>
+            <tr>
+              <th>free moisture</th>
+              <th>author</th>
+              <th>sp change</th>
+              <th>prod operator</th>
+              <th>remark</th>
+            </tr>
+          </thead>
+          <tbody class="text-center ">
+            <tr>
+                <td>{{ form.free_moisture }}</td>
+                <td>{{ form.author }}</td>
+                <td>{{ form.burner_sp_change }}</td>
+                <td>{{ form.call_to_operator }}</td>
+                <td>{{ form.remarks }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+{#        <p>{{ form.initial_setting_time }}</p>#}
+
+        <div align="center">
+            <button type = "submit" class="btn-lg">Save</button>
+        </div>
+      <br>
+    </form>
+
+{% endblock %}
+

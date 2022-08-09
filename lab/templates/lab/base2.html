@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Lab Data Entry</title>
+        <meta charset="UTF-8">
+        {#        <meta property="og:image" content="img/K-LOGO.png" />#}
+{#	    <link href= rel="shortcut icon"{% static 'img/K-LOGO.png' %}/>#}
+{#        <link rel="icon" type="image/png" href="../../static/img/K-LOGO.png">#}
+{#        <link href="/static/img/favicon/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>#}
+{#        <link href="../../static/img/K-LOGO.png" rel="apple-touch-icon" sizes="32x32"/>#}
+{#        <link rel="shortcut icon" sizes="32x29" href={% static 'img/K-LOGO.png'%} />#}
+        <title>Title</title>
+{#        <link rel="stylesheet" href="../css/lab.css">#}
+        <link rel="stylesheet" href={% static 'css/lab.css' %}>
+
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Lab Data Entry</a></h1>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-auto">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+{% load jalali_tags %}
+
+<p>{{ request.user.date_joined|to_jalali:'%y/%m/%d _ %H:%M:%S' }}</p>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+
+<!-- By default, Datepicker using jQuery, you need to set your script after loading jQuery! -->
+	<!-- loading directly -->
+		<link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+		<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
+	<!-- OR -->
+	<!-- loading by form (if used AdminJalaliDateWidget) -->
+		{{ form.media }}
+
+

@@ -1,0 +1,307 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block content %}
+  <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+  <form method="post" id="labForm" data-quarters-url="{% url 'ajax_load_quarters' %}" novalidate>
+
+    {% csrf_token %}
+
+    <div class="d-flex flex-column mt-2">
+      <div class="test2 text-info text-center"><strong>Sampling Time Interval</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_author">Author</label>
+            <p>{{ form.counter }}</p>
+            {% for error in form.author.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_created_date">Created Date</label>
+            <p>{{ form.quantity }}</p>
+            {% for error in form.created_date.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_hour">Hour</label>
+            <p>{{ form.user }}</p>
+            {% for error in form.hour.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_quarter">15 Minute</label>
+            <p>{{ form.date }}</p>
+            {% for error in form.quarter.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_published_date">Published date</label>
+            <p>{{ form.time }}</p>
+            {% for error in form.published_date.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-2">
+      <div class="test2 text-info text-center"><strong>Raw Material Quality</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0">
+            <label for="id_crystal_water_rawmat">RM Crystal Water</label>
+            <p>{{ form.food }}</p>
+            {% for error in form.crystal_water_rawmat.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0">
+            <label for="id_purity_rm">Gypsum rock Purity</label>
+            <p>{{ form.quantity }}</p>
+            {% for error in form.purity_rm.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_line">Line</label>
+            <p>{{ form.rice }}</p>
+            {% for error in form.line.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_mine">Quarry</label>
+            <p>{{ form.beef }}</p>
+            {% for error in form.mine.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_product_silo">Product silo</label>
+            <p>{{ form.lamb }}</p>
+            {% for error in form.product_silo.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-2">
+      <div class="test2 text-success text-center"><strong>Setting Time</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_initial_setting_time">Initial setting time</label>
+            <p data-toggle="tooltip" title="<p class='text-left text-danger m-0 font-weight-bold'>HH: 4m<br><span class='text-warning'>H: 3<br>L: 2:30</span><br>LL: 2m</p>">{{ form.chicken_leg }}</p>
+          {% for error in form.initial_setting_time.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_final_setting_time">Final setting time</label>
+            <p data-toggle="tooltip" title="<p class='text-left text-danger m-0 font-weight-bold'>HH: 4m<span class='text-warning'><br>H: 3<br>L: 2:30</span><br>LL: 2m</p>">{{ form.chicken_breast }}</p>
+          {% for error in form.final_setting_time.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-1">
+      <div class="test2 text-success text-center"><strong>Calcination</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_einstrumenge">Einstrumenge</label>
+            <p>{{ form.fish }}</p>
+            {% for error in form.einstrumenge.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_crystal_water_stucco">Crystal water</label>
+            <p>{{ form.solid_oil }}</p>
+            {% for error in form.crystal_water_stucco.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_water_gypsum_ratio">WaterGyp ratio</label>
+            <p>{{ form.liquid_oil }}</p>
+            {% for error in form.water_gypsum_ratio.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_free_moisture">Free Moisture</label>
+            <p>{{ form.beef_shank }}</p>
+            {% for error in form.free_moisture.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-1">
+      <div class="test2 text-success text-center"><strong>Particle Size</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_retained_63_micron">Sieve <strong>63</strong> micron</label>
+            <p>{{ form.olive_oil }}</p>
+            {% for error in form.retained_63_micron.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_retained_200_micron">Sieve <strong>200</strong> micron</label>
+            <p>{{ form.macaroni }}</p>
+            {% for error in form.retained_200_micron.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_retained_500_micron">Sieve <strong>500</strong> micron</label>
+            <p>{{ form.reshte_poloie }}</p>
+            {% for error in form.retained_500_micron.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-1">
+      <div class="test2 text-success text-center"><strong>Anhidrite</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_soluble_anhydrite">Soluble anhydrite</label>
+            <p>{{ form.rob_anar }}</p>
+            {% for error in form.soluble_anhydrite.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_hemihydrate">Hemihydrate</label>
+            <p>{{ form.egg }}</p>
+            {% for error in form.hemihydrate.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_low_solubility_anhydrite">Low.solub. anhydrite</label>
+            <p>{{ form.animal_oil }}</p>
+            {% for error in form.low_solubility_anhydrite.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-1">
+      <div class="test2 text-danger text-center"><strong>Non Conformity</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-inline-wrap">
+          <div class="d-block m-1 p-0">
+            <label for="id_non_conformity">Non conformity</label>
+            <p>{{ form.butter_1 }}</p>
+          </div>
+          <div class="nonconf m-1 p-0 flex-wrap">
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_CS">Non conformity CS</label>
+              <p>{{ form.lemon_juice_1 }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_EI">Non conformity EI</label>
+              <p>{{ form.butter_bulk }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_FM">Non conformity FM</label>
+              <p>{{ form.tomato_paste }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_FS">Non conformity FS</label>
+              <p>{{ form.lentil }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_IS">Non conformity IS</label>
+              <p>{{ form.raisin }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_P6">Non conformity P6</label>
+              <p>{{ form.walnut }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_P2">Non conformity P2</label>
+              <p>{{ form.split_peas }}</p>
+            </div>
+            <div class="d-block mr-2 p-0">
+              <label for="id_nonconf_P5">Non conformity P5</label>
+              <p>{{ form.red_beans }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-1">
+      <div class="test2 text-danger text-center"><strong>Non Conformity Action</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_action">Action</label>
+            <p>{{ form.tomato }}</p>
+            {% for error in form.action.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_burner_sp_change">Burner SP change</label>
+            <p>{{ form.onion }}</p>
+            {% for error in form.burner_sp_change.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_call_to_operator">Call to operator</label>
+            <p>{{ form.potato }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column mt-1">
+      <div class="test2 text-warning text-center"><strong>Remarks</strong></div>
+      <div class="d-flex flex-wrap bg-light pb-0">
+        <div class="d-inline-flex flex-wrap">
+          <div class="d-block m-1 p-0 flex-shrink-0">
+            <label for="id_remarks" id="remarklable">Remarks</label>
+            <p>{{ form.broad_bean }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div align="center">
+      <button type = "submit" class="btn-lg">Save</button>
+    </div>
+    <br>
+  </form>
+{% endblock %}
+{% block footer_ref %}
+{% endblock %}

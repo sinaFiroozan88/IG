@@ -1,0 +1,157 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'lab/css/bootstrap.min.css' %}">
+  <script src="{% static 'lab/js/bootstrap.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'lab/css/login.css' %}">
+</head>
+<body>
+
+<div class="container-fluid con" style="height: 100%;width: 100%;">
+  <div class=" l-left">
+    <img src="../../static/lab/img/K-LOGO1.png" alt="K+">
+  </div>
+  <div class="bg-light l-right">
+
+    <form class="on" method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+      {% endif %}
+      <label for="id_username">{{ form.username.label_tag }}</label>
+      <p class="un">{{ form.username }}</p>
+      <br>
+      <label for="id_password">{{ form.password.label_tag }}</label>
+      <p class="un">{{ form.password }}</p>
+
+      <div>
+        <br>
+        <input type="submit" value="login" class="d-inline-block xn" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+    </form>
+    {#  </div>#}
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+{#{% extends "lab/base.html" %}#}
+{##}
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <meta name="viewport"#}
+{#        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#  <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+{#  <title>Document</title>#}
+{#</head>#}
+{#<body style="display:flex;">#}
+{##}
+{##}
+{##}
+{#{% block content %}#}
+{#<style>#}
+{#  #id_username #id_password{#}
+{#    box-sizing: border-box;#}
+{#    width: 250px;#}
+{#    height: 50px;#}
+{#    margin: auto;#}
+{#    vertical-align: middle;#}
+{#  }#}
+{#  .un > input {#}
+{#    background: rgb(255, 255, 255);#}
+{#    height: 50px;#}
+{#    width: 400px;#}
+{#  }#}
+{#  tr {#}
+{#    display: flex;#}
+{#    flex-direction: column;#}
+{#    align-items: start;#}
+{##}
+{#  }#}
+{#  table {#}
+{#    margin: 0;#}
+{#  }#}
+{#  .xn {#}
+{#    background: #ffffff;#}
+{#    border-radius: 15px;#}
+{#    border: 2px solid #000000;#}
+{#  }#}
+{#  .tr {#}
+{#    margin-top: 30px;#}
+{#    margin-bottom: 15px;#}
+{#  }#}
+{#  .on {#}
+{#    height: 100%;#}
+{#    display: flex;#}
+{#    flex-direction: column;#}
+{#    justify-content: center;#}
+{#  }#}
+{#  .l-right {#}
+{#    background: rgba(219, 219, 219, 0.66);#}
+{#    height: 100%;#}
+{#    margin: 0;#}
+{#    display: flex;#}
+{#    flex-direction: column;#}
+{#    justify-content: center;#}
+{#  }#}
+{#</style>#}
+{#<div class="col-md-6 l-left" style="width: 50%; height: 100%;">#}
+{#  <img src="../../static/lab/img/K-LOGO1.png" style="width: 100%; height: 100%;">#}
+{#</div>#}
+{#<div class="l-right col-md-6 bg-light" style="width: 50%; height: 100%;display:flex;flex-direction: column; justify-content: center">#}
+{##}
+{#  <form class="on" method="post" action="{% url 'login' %}" style="display:flex;justify-content:center;align-items: center; align-content: center">#}
+{#    {% csrf_token %}#}
+{#    <div style="display:flex;flex-direction: column;align-items: center; height: 100%;">#}
+{#      <table>#}
+{#        {% if form.errors %}#}
+{#          <p>Your username and password didn't match. Please try again.</p>#}
+{#          <div>#}
+{#        {% endif %}#}
+{#        <tr>#}
+{#          <td>{{ form.username.label_tag }}</td>#}
+{#          <td class="un">{{ form.username }}</td>#}
+{#        </tr>#}
+{#        <tr class="tr">#}
+{#          <td>{{ form.password.label_tag }}</td>#}
+{#          <td class="un">{{ form.password }}</td>#}
+{#        </tr>#}
+{#    </div>#}
+{#      </table>#}
+{##}
+{#        <input type="submit" value="login" style="margin-top: 15px;width:200px; height:40px;" class="xn" />#}
+{#        <input type="hidden" name="next" value="{{ next }}" />#}
+{#</div>#}
+{#</form>#}
+{#{% endblock %}#}
+{#</div>#}
+{##}
+{##}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}

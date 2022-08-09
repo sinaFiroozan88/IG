@@ -1,0 +1,122 @@
+{% extends 'shared/_base.html' %}
+
+{% block content %}
+  <button id="reset" class="my-2">Reset to original column order</button>
+    <br>
+    <table id="table1" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+      <th>row</th>
+      <th>Link</th>
+      <th>author</th>
+      <th>c_date</th>
+      <th>hour</th>
+      <th>line</th>
+      <th>mine</th>
+      <th>prod silo</th>
+      <th>init setting</th>
+      <th>final setting</th>
+      <th>einstru menge</th>
+      <th>CW RM</th>
+      <th>purity RM</th>
+      <th>CW</th>
+      <th>WG ratio</th>
+      <th>63 m</th>
+      <th>200 m</th>
+      <th>500 m</th>
+      <th>s anhidrite</th>
+      <th>hemihidrate</th>
+      <th>ns anhidrite</th>
+      <th>non-conf</th>
+      <th>CS</th>
+      <th>EI</th>
+      <th>FM</th>
+      <th>FS</th>
+      <th>IS</th>
+      <th>P6</th>
+      <th>P2</th>
+      <th>P5</th>
+      <th>action</th>
+      <th>p_date</th>
+      <th>remark</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for lab in labs %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><h6><a href="{% url 'lab_detail' pk=lab.pk %}">جزئیات</a></h6></td>
+        <td>{{ lab.author }}</td>
+        <td>{{ lab.created_date | date:"SHORT_DATE_FORMAT" }}</td>
+        <td>{{ lab.hour }}</td>
+        <td>{{ lab.line }}</td>
+        <td>{{ lab.mine }}</td>
+        <td>{{ lab.product_silo }}</td>
+        <td>{{ lab.initial_setting_time }}</td>
+        <td>{{ lab.final_setting_time }}</td>
+        <td>{{ lab.einstrumenge }}</td>
+        <td>{{ lab.crystal_water_rawmat }}</td>
+        <td>{{ lab.purity_rm }}</td>
+        <td>{{ lab.crystal_water_stucco }}</td>
+        <td>{{ lab.water_gypsum_ratio }}</td>
+        <td>{{ lab.retained_63_micron }}</td>
+        <td>{{ lab.retained_200_micron }}</td>
+        <td>{{ lab.retained_500_micron }}</td>
+        <td>{{ lab.soluble_anhydrite }}</td>
+        <td>{{ lab.hemihydrate }}</td>
+        <td>{{ lab.low_solubility_anhydrite }}</td>
+        <td>{{ lab.non_conformity }}</td>
+        <td>{{ lab.nonconf_CS }}</td>
+        <td>{{ lab.nonconf_EI }}</td>
+        <td>{{ lab.nonconf_FM }}</td>
+        <td>{{ lab.nonconf_FS }}</td>
+        <td>{{ lab.nonconf_IS }}</td>
+        <td>{{ lab.nonconf_P6 }}</td>
+        <td>{{ lab.nonconf_P2 }}</td>
+        <td>{{ lab.nonconf_P5 }}</td>
+        <td>{{ lab.action }}</td>
+        <td>{{ lab.published_date|date:"SHORT_DATETIME_FORMAT" }}</td>
+        <td>{{ lab.remarks }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>row</th>
+      <th>Link</th>
+      <th>author</th>
+      <th>c_date</th>
+      <th>hour</th>
+      <th>line</th>
+      <th>mine</th>
+      <th>prod silo</th>
+      <th>init setting</th>
+      <th>final setting</th>
+      <th>einstru menge</th>
+      <th>CW RM</th>
+      <th>purity RM</th>
+      <th>CW</th>
+      <th>WG ratio</th>
+      <th>63 m</th>
+      <th>200 m</th>
+      <th>500 m</th>
+      <th>s anhidrite</th>
+      <th>hemihidrate</th>
+      <th>ns anhidrite</th>
+      <th>non-conf</th>
+      <th>CS</th>
+      <th>EI</th>
+      <th>FM</th>
+      <th>FS</th>
+      <th>IS</th>
+      <th>P6</th>
+      <th>P2</th>
+      <th>P5</th>
+      <th>action</th>
+      <th>p_date</th>
+      <th>remark</th>
+    </tr>
+    </tfoot>
+  </table>
+
+{% endblock %}

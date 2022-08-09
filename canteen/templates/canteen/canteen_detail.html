@@ -1,0 +1,182 @@
+{% extends 'shared/_base.html' %}
+
+{% block content %}
+
+  <div class="d-flex bg-light mt-2 rtl">
+    <div class="d-flex">
+      <div class="p-2 bg-info" style="width: 111px;"><strong>info</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">user: <strong>{{ dailymeal.user }}</strong></div>
+      <div class="p-2 pr-5">date: <strong>{{ dailymeal.created_date|date:"D d M Y" }}</strong></div>
+      <div class="p-2 pr-5">time: <strong>{{ dailymeal.published_date|time:"H:i" }}</strong></div>
+      <div class="p-2 pr-5">food: <strong>{{ dailymeal.food }}</strong></div>
+      <div class="p-2 pr-5">quantity: <strong>{{ dailymeal.quantity }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-info" style="width: 111px;"><strong>raw material</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">برنج: <strong>{{ dailymeal.rice }}</strong></div>
+      <div class="p-2 pr-5">گوشت گوساله: <strong>{{ dailymeal.beef }}</strong></div>
+      <div class="p-2 pr-5">گوشت گوسفند: <strong>{{ dailymeal.lamb }}</strong></div>
+      <div class="p-2 pr-5">ران مرغ: <strong>{{ dailymeal.chicken_leg }}</strong></div>
+      <div class="p-2 pr-5">سینه مرغ: <strong>{{ dailymeal.chicken_breast }}</strong></div>
+      <div class="p-2 pr-5">ماهی: <strong>{{ dailymeal.chicken_breast }}</strong></div>
+      <div class="p-2 pr-5">گردو: <strong>{{ dailymeal.walnut }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-success" style="width: 111px;"><strong>setting time</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">روغن جامد: <strong>{{ dailymeal.solid_oil }}</strong></div>
+      <div class="p-2 pr-5">روغن مایع: <strong>{{ dailymeal.liquid_oil }}</strong></div>
+      <div class="p-2 pr-5">روغن زیتون: <strong>{{ dailymeal.olive_oil }}</strong></div>
+      <div class="p-2 pr-5">قلم گوساله: <strong>{{ dailymeal.beef_shank }}</strong></div>
+      <div class="p-2 pr-5">ماکارونی: <strong>{{ dailymeal.macaroni }}</strong></div>
+      <div class="p-2 pr-5">رشته پلویی: <strong>{{ dailymeal.reshte_poloie }}</strong></div>
+      <div class="p-2 pr-5">رب انار: <strong>{{ dailymeal.rob_anar }}</strong></div>
+      <div class="p-2 pr-5">تخم مرغ: <strong>{{ dailymeal.egg }}</strong></div>
+      <div class="p-2 pr-5">روغن حیوانی: <strong>{{ dailymeal.animal_oil }}</strong></div>
+      <div class="p-2 pr-5">کره 1 نفره: <strong>{{ dailymeal.butter_1 }}</strong></div>
+      <div class="p-2 pr-5">کره فله: <strong>{{ dailymeal.butter_bulk }}</strong></div>
+      <div class="p-2 pr-5">آبلیمو 1 نفره: <strong>{{ dailymeal.lemon_juice_1 }}</strong></div>
+      <div class="p-2 pr-5">آبلیمو فله: <strong>{{ dailymeal.lemon_juice }}</strong></div>
+      <div class="p-2 pr-5">رب گوجه فرنگی: <strong>{{ dailymeal.tomato_paste }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-success" style="width: 111px;"><strong>calcination</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">عدس: <strong>{{ dailymeal.lentil }}</strong></div>
+      <div class="p-2 pr-5">کشمش: <strong>{{ dailymeal.raisin }}</strong></div>
+      <div class="p-2 pr-5">لپه: <strong>{{ dailymeal.split_peas }}</strong></div>
+      <div class="p-2 pr-5">لوبیا قرمز: <strong>{{ dailymeal.red_beans }}</strong></div>
+      <div class="p-2 pr-5">گوجه فرنگی: <strong>{{ dailymeal.tomato }}</strong></div>
+      <div class="p-2 pr-5">پیاز: <strong>{{ dailymeal.onion }}</strong></div>
+      <div class="p-2 pr-5">سیب زمینی: <strong>{{ dailymeal.potato }}</strong></div>
+      <div class="p-2 pr-5">باقالی: <strong>{{ dailymeal.broad_bean }}</strong></div>
+      <div class="p-2 pr-5">کرفس: <strong>{{ dailymeal.celery }}</strong></div>
+      <div class="p-2 pr-5">لوبیا سبز: <strong>{{ dailymeal.green_bean }}</strong></div>
+      <div class="p-2 pr-5">بادمجان: <strong>{{ dailymeal.eggplant }}</strong></div>
+      <div class="p-2 pr-5">لیمو امانی: <strong>{{ dailymeal.amani_lemon }}</strong></div>
+      <div class="p-2 pr-5">لیمو: <strong>{{ dailymeal.lemon }}</strong></div>
+      <div class="p-2 pr-5">سبزی کوکو: <strong>{{ dailymeal.sabzi_kuku }}</strong></div>
+      <div class="p-2 pr-5">سبزی قورمه: <strong>{{ dailymeal.sabzi_qorme }}</strong></div>
+      <div class="p-2 pr-5">سبزی پلویی: <strong>{{ dailymeal.sabzi_poloie }}</strong></div>
+      <div class="p-2 pr-5">سیر: <strong>{{ dailymeal.garlic }}</strong></div>
+      <div class="p-2 pr-5">فلفل دلمه: <strong>{{ dailymeal.bell_pepper }}</strong></div>
+      <div class="p-2 pr-5">قارچ: <strong>{{ dailymeal.mushroom }}</strong></div>
+      <div class="p-2 pr-5">نخود فرنگی: <strong>{{ dailymeal.peas }}</strong></div>
+      <div class="p-2 pr-5">گشنیز: <strong>{{ dailymeal.coriander }}</strong></div>
+      <div class="p-2 pr-5">مرزه خشک: <strong>{{ dailymeal.dry_savory }}</strong></div>
+      <div class="p-2 pr-5">ترخون خشک: <strong>{{ dailymeal.dried_tarragon }}</strong></div>
+      <div class="p-2 pr-5">نعناع: <strong>{{ dailymeal.spearmint }}</strong></div>
+      <div class="p-2 pr-5">جعفری: <strong>{{ dailymeal.jafari }}</strong></div>
+      <div class="p-2 pr-5">ریحان: <strong>{{ dailymeal.reyhan }}</strong></div>
+      <div class="p-2 pr-5">خیارشور: <strong>{{ dailymeal.pickle }}</strong></div>
+      <div class="p-2 pr-5">هویج: <strong>{{ dailymeal.carrot }}</strong></div>
+      <div class="p-2 pr-5">شوید: <strong>{{ dailymeal.shevid }}</strong></div>
+      <div class="p-2 pr-5">زعفران: <strong>{{ dailymeal.saffron }}</strong></div>
+      <div class="p-2 pr-5">آبغوره: <strong>{{ dailymeal.verjuice }}</strong></div>
+      <div class="p-2 pr-5">آبلیمو: <strong>{{ dailymeal.lemon_juice }}</strong></div>
+      <div class="p-2 pr-5">سرکه سفید: <strong>{{ dailymeal.white_vinegar }}</strong></div>
+      <div class="p-2 pr-5">آرد سفید: <strong>{{ dailymeal.white_flour }}</strong></div>
+      <div class="p-2 pr-5">آرد سوخاری: <strong>{{ dailymeal.toasted_flour }}</strong></div>
+      <div class="p-2 pr-5">پودر سوخاری: <strong>{{ dailymeal.toasted_powder }}</strong></div>
+      <div class="p-2 pr-5">آرد برنج: <strong>{{ dailymeal.rice_flour }}</strong></div>
+      <div class="p-2 pr-5">آرد نخود: <strong>{{ dailymeal.chickpea_flour }}</strong></div>
+      <div class="p-2 pr-5">شکر: <strong>{{ dailymeal.sugar }}</strong></div>
+      <div class="p-2 pr-5">ماست: <strong>{{ dailymeal.yogurt }}</strong></div>
+      <div class="p-2 pr-5">سماق: <strong>{{ dailymeal.sumac }}</strong></div>
+      <div class="p-2 pr-5">نشاسته: <strong>{{ dailymeal.starch }}</strong></div>
+      <div class="p-2 pr-5">سرکه: <strong>{{ dailymeal.vinegar }}</strong></div>
+      <div class="p-2 pr-5">سس خردل: <strong>{{ dailymeal.mustard }}</strong></div>
+      <div class="p-2 pr-5">سس: <strong>{{ dailymeal.sauce }}</strong></div>
+      <div class="p-2 pr-5">زرشک: <strong>{{ dailymeal.barberry }}</strong></div>
+      <div class="p-2 pr-5">سنگ نمک: <strong>{{ dailymeal.rock_salt }}</strong></div>
+      <div class="p-2 pr-5">فلفل: <strong>{{ dailymeal.pepper }}</strong></div>
+      <div class="p-2 pr-5">شیر: <strong>{{ dailymeal.milk }}</strong></div>
+      <div class="p-2 pr-5">نمک: <strong>{{ dailymeal.salt }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-success" style="width: 111px;"><strong>particle size</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">63 micron: <strong>{{ dailymeal.retained_63_micron }}</strong></div>
+      <div class="p-2 pr-5">200 micron: <strong>{{ dailymeal.retained_200_micron }}</strong></div>
+      <div class="p-2 pr-5">500 micron: <strong>{{ dailymeal.retained_500_micron }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-success" style="width: 111px;"><strong>anhidrite</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">soluble anhidrite: <strong>{{ dailymeal.soluble_anhydrite }}</strong></div>
+      <div class="p-2 pr-5">low solubility anhidrite: <strong>{{ dailymeal.low_solubility_anhydrite }}</strong></div>
+      <div class="p-2 pr-5">hemi-hidrate: <strong>{{ dailymeal.hemihydrate }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-danger" style="width: 111px;"><strong>non conformity</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2  pr-5">total: <strong class="text-danger">{{ dailymeal.non_conformity }}</strong></div>
+      <div class="p-2  pr-5">einstrumenge: <strong class="text-danger">{{ dailymeal.nonconf_EI | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">initial setting: <strong class="text-danger">{{ dailymeal.nonconf_IS | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">final setting: <strong class="text-danger">{{ dailymeal.nonconf_FS | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">crystal water: <strong class="text-danger">{{ dailymeal.nonconf_CS | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">63 micron: <strong class="text-danger">{{ dailymeal.nonconf_P6 | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">200 micron: <strong class="text-danger">{{ dailymeal.nonconf_P2 | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">500 micron: <strong class="text-danger">{{ dailymeal.nonconf_P5 | yesno:",X" }}</strong></div>
+      <div class="p-2  pr-5">free moisture: <strong class="text-danger">{{ dailymeal.nonconf_FM | yesno:",X" }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-danger" style="width: 111px;"><strong>non conformity action</strong></div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 pr-5">action: <strong>{{ dailymeal.action }}</strong></div>
+      <div class="p-2 pr-5">burner setpoint change: <strong>{{ dailymeal.burner_sp_change }}</strong></div>
+      <div class="p-2 pr-5">call to operator: <strong>{{ dailymeal.call_to_operator }}</strong></div>
+    </div>
+  </div>
+
+  <div class="d-flex bg-light mt-2">
+    <div class="d-flex">
+      <div class="p-2 bg-warning" style="width: 111px;"><strong>remarks</strong></div>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center" style="direction: rtl;">
+      <div class="p-2 pr-5"><strong>{{ dailymeal.remarks }}</strong></div>
+    </div>
+  </div>
+
+  <br>
+  <div class="container-fluid d-block bg-light mx-auto">
+    {% if user.is_authenticated %}
+{#        <a class="btn btn-secondary" style="margin-left: 20%; width: 20%; height: 10%" href="{% url 'dailymeal_edit' pk=dailymeal.pk %}">Edit</a>#}
+{#      <span><a class="btn btn-danger" style="margin-left: 20%; width: 20%; height: 10%" href="{% url 'dailymeal_remove' pk=dailymeal.pk %}">ِDelete</a></span>#}
+{#        <a class="btn btn-default" href="{% url 'dailymeal_remove' pk=dailymeal.pk %}"><span>Delete</span></a>#}
+
+    {% endif %}
+  </div>
+  <br>
+{% endblock %}

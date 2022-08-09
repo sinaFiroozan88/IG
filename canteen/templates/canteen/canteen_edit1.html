@@ -1,0 +1,19 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block content %}
+    <form method="post" id="DailyMealForm" data-foods-url="{% url 'ajax_load_food_fields' %}" novalidate>
+    <form method="post">
+      <br>
+    {% csrf_token %}
+    <div>
+    {{ form.as_table }}
+
+    </div>
+{#      <button type = "" class="btn-lg" data_fields="{% url 'food_list' %}">Save</button>#}
+
+
+  </form>
+{% endblock %}
+{% block footer_ref %}
+{% endblock %}

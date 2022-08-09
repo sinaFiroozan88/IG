@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns:script="http://www.w3.org/1999/html">
+	<head>
+        <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+				<meta name="description" content="This site has been developed in august 2020 or Shahrivar 1399">
+				<meta name="author" content="Mehdi Zarean">
+				<meta name="Technology" content="Python3.8.5 Django3.0 sqlserver2019 bootstrap4.5.2">
+				<title>K+IG Lab Data Entry</title>
+
+				<link rel="stylesheet" type="text/css" href="{% static 'lab/css/bootstrap.min.css' %}">
+				<script type="text/javascript" src="{% static 'lab/js/jquery.min.js' %}"></script>
+				<script type="text/javascript" src="{% static 'lab/js/bootstrap.min.js' %}"></script>
+				<script type="text/javascript" src="{% static 'lab/js/popper.min.js' %}"></script>
+{#        <script type="text/javascript" src="{% static 'js/app.js' %}"></script> #}
+    <script src=""></script>
+
+{#    	    <link rel="stylesheet" href="../../static/lab/css/bootstrap.min.css">#}
+{#          <script src="../../static/lab/js/bootstrap.min.js"></script>#}
+{#			  	<script src="../../static/lab/js/jquery.min.js"></script>#}
+{#			  	<script src="../../static/lab/js/popper.min.js"></script>#}
+{#			  	<link rel="stylesheet" href={% static 'css/lab.css' %}>#}
+
+{#          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
+{#          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+{#          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>#}
+{#          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>#}
+
+	</head>
+<body>
+{#      <script type="text/javascript" src="{% static 'lab/js/jquery.min.js' %}"></script>#}
+{#	  	<script type="text/javascript" src="{% static 'lab/js/bootstrap.min.js' %}"></script>#}
+{#			<script type="text/javascript" src="{% static 'lab/js/popper.min.js' %}"></script>#}
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Logo</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 2</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <a class="navbar-brand" href="#"><img src="{% static 'img/K-LOGO1.png' %}" alt="logo" style="width:40px;"></a>
+	  	<a class="navbar-brand" href="#">Iran Gatch</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+{#    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">#}
+{#      <a class="navbar-brand" href="#"><img src="../../static/img/K-LOGO1.png" alt="logo" style="width:40px;"></a>#}
+{#	  	<a class="navbar-brand" href="#">Iran Gatch</a>#}
+{##}
+{#      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#	  	</button>#}
+{##}
+{#      <div class="collapse navbar-collapse" id="navb">#}
+{#		    <ul class="navbar-nav mr-auto">#}
+{#			    <li class="nav-item">#}
+{#				    <a class="nav-link" href="javascript:void(0)">Link</a>#}
+{#			    </li>#}
+{#			    <li class="nav-item">#}
+{#				    <a class="nav-link" href="javascript:void(0)">Link</a>#}
+{#			    </li>#}
+{#			    <li class="nav-item">#}
+{#				    <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>#}
+{#			    </li>#}
+{#		    </ul>#}
+{#		    <form class="form-inline my-2 my-lg-0">#}
+{#			    <input class="form-control mr-sm-2" type="text" placeholder="Search">#}
+{#			    <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>#}
+{#		    </form>#}
+{#		  </div>#}
+{#		</nav>#}
+<div class="container-fluid">
+	<h3>Brand / Logo</h3>
+	<p>When using the .navbar-brand class on images, Bootstrap 4 will automatically style the image to fit the navbar.</p>
+</div>
+
+				<div class="page-header">
+						<h1><a href="/">Lab Data Entry</a></h1>
+				</div>
+
+				<div class="content container-fluid">
+						<div class="row">
+								<div class="col-md-auto">
+										{% block content %}
+										{% endblock %}
+								</div>
+						</div>
+				</div>
+</body>
+</html>

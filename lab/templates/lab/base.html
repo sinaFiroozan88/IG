@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns:script="http://www.w3.org/1999/html">
+	<head>
+        <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+				<meta name="description" content="This site has been developed in august 2020 or Shahrivar 1399">
+				<meta name="author" content="Mehdi Zarean">
+				<meta name="Technology" content="Python3.8.6 Django3.1.2 sqlserver2019 bootstrap4.5.2">
+				<title>K+IG Lab Data Entry</title>
+
+				<link rel="stylesheet" type="text/css" href="{% static 'lab/css/bootstrap.min.css' %}">
+				<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+				<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+				<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+				<link rel="stylesheet" type="text/css" href="{% static 'css/lab.css' %}">
+
+	</head>
+<body>
+{% if user.is_authenticated %}
+  {% include "lab/header.html" %}
+{% endif %}
+
+
+				<div class="content container-fluid">
+{#						<div class="row">#}
+{#								<div class="col-md-auto">#}
+										{% block content %}
+										{% endblock %}
+{#								</div>#}
+{#						</div>#}
+				</div>
+  {% include "lab/footer.html" %}
+</body>
+</html>

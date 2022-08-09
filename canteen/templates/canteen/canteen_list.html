@@ -1,0 +1,257 @@
+{% extends 'shared/_base.html' %}
+
+{% block content %}
+  <button id="reset" class="my-2">Reset to original column order</button>
+    <br>
+    <table id="table1" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+      <th>ردیف</th>
+      <th>لینک</th>
+      <th>کاربر</th>
+      <th>تاریخ</th>
+      <th>ساعت</th>
+      <th>غذا</th>
+      <th>تعداد</th>
+      <th>برنج</th>
+      <th>گوشت گوسفند</th>
+      <th>گوشت گوساله</th>
+      <th>سینه مرغ</th>
+      <th>ران مرغ</th>
+      <th>ماهی</th>
+      <th>روغن جامد</th>
+      <th>روغن مایع (لیتر)</th>
+      <th>قلم گوساله</th>
+      <th>روغن زیتون</th>
+      <th>ماکارونی</th>
+      <th>رشته پلویی</th>
+      <th>رب انار</th>
+      <th>تخم مرغ (عدد)</th>
+      <th>روغن حیوانی</th>
+      <th>کره تک نفره</th>
+      <th>آبلیمو تک نفره</th>
+      <th>کره فله ای</th>
+      <th>رب گوجه</th>
+      <th>عدس</th>
+      <th>کشمش</th>
+      <th>گردو</th>
+      <th>لپه</th>
+      <th>لوبیا قرمز</th>
+      <th>گوجه فرنگی</th>
+      <th>پیاز</th>
+      <th>سیب زمینی</th>
+      <th>باقالی</th>
+      <th>کرفس</th>
+      <th>لوبیا سبز</th>
+      <th>بادمجان</th>
+      <th>لیمو امانی</th>
+      <th>لیمو</th>
+      <th>سبزی کوکو</th>
+      <th>سبزی قورمه</th>
+      <th>سبزی پلویی</th>
+      <th>سیر</th>
+      <th>فلفل دلمه</th>
+      <th>قارچ</th>
+      <th>نخود فرنگی</th>
+      <th>گشنیز</th>
+      <th>مرزه خشک</th>
+      <th>ترخون خشک</th>
+      <th>نعناع</th>
+      <th>جعفری</th>
+      <th>ریحان</th>
+      <th>خیارشور</th>
+      <th>هویج</th>
+      <th>شوید</th>
+      <th>زعفران (گرم)</th>
+      <th>آبغوره</th>
+      <th>آبلیمو</th>
+      <th>سرکه سفید (لیتر)</th>
+      <th>آرد سفید</th>
+      <th>آرد سوخاری</th>
+      <th>پودر سوخاری</th>
+      <th>آرد برنج</th>
+      <th>آرد نخود</th>
+      <th>شکر</th>
+      <th>ماست</th>
+      <th>سماق (عدد)</th>
+      <th>نشاسته</th>
+      <th>سرکه (لیتر)</th>
+      <th>سس خردل</th>
+      <th>سس</th>
+      <th>گلاب</th>
+      <th>زرشک</th>
+      <th>سنگ نمک</th>
+      <th>فلفل</th>
+      <th>شیر (لیتر)</th>
+      <th>نمک</th>
+     </tr>
+    </thead>
+    <tbody>
+    {% for dailymeal in dailymeals %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><h6><a href="{% url 'canteen_detail' pk=dailymeal.pk %}">جزئیات</a></h6></td>
+        <td>{{ dailymeal.user }}</td>
+        <td>{{ dailymeal.date | date:"SHORT_DATE_FORMAT" }}</td>
+        <td>{{ dailymeal.time }}</td>
+        <td>{{ dailymeal.food }}</td>
+        <td>{{ dailymeal.quantity }}</td>
+        <td>{{ dailymeal.rice }}</td>
+        <td>{{ dailymeal.beef }}</td>
+        <td>{{ dailymeal.lamb }}</td>
+        <td>{{ dailymeal.chicken_leg }}</td>
+        <td>{{ dailymeal.chicken_breast }}</td>
+        <td>{{ dailymeal.fish }}</td>
+        <td>{{ dailymeal.solid_oil }}</td>
+        <td>{{ dailymeal.liquid_oil }}</td>
+        <td>{{ dailymeal.beef_shank }}</td>
+        <td>{{ dailymeal.olive_oil }}</td>
+        <td>{{ dailymeal.macaroni }}</td>
+        <td>{{ dailymeal.reshte_poloie  }}</td>
+        <td>{{ dailymeal.rob_anar }}</td>
+        <td>{{ dailymeal.egg }}</td>
+        <td>{{ dailymeal.animal_oil }}</td>
+        <td>{{ dailymeal.butter_1 }}</td>
+        <td>{{ dailymeal.lemon_juice_1  }}</td>
+        <td>{{ dailymeal.butter_bulk }}</td>
+        <td>{{ dailymeal.tomato_paste }}</td>
+        <td>{{ dailymeal.lentil }}</td>
+        <td>{{ dailymeal.raisin }}</td>
+        <td>{{ dailymeal.walnut }}</td>
+        <td>{{ dailymeal.split_peas }}</td>
+        <td>{{ dailymeal.red_beans }}</td>
+        <td>{{ dailymeal.tomato }}</td>
+        <td>{{ dailymeal.onion }}</td>
+        <td>{{ dailymeal.potato }}</td>
+        <td>{{ dailymeal.broad_bean }}</td>
+        <td>{{ dailymeal.celery }}</td>
+        <td>{{ dailymeal.green_bean }}</td>
+        <td>{{ dailymeal.eggplant }}</td>
+        <td>{{ dailymeal.amani_lemon }}</td>
+        <td>{{ dailymeal.lemon }}</td>
+        <td>{{ dailymeal.sabzi_kuku }}</td>
+        <td>{{ dailymeal.sabzi_qorme }}</td>
+        <td>{{ dailymeal.sabzi_poloie }}</td>
+        <td>{{ dailymeal.garlic }}</td>
+        <td>{{ dailymeal.bell_pepper }}</td>
+        <td>{{ dailymeal.mushroom }}</td>
+        <td>{{ dailymeal.peas }}</td>
+        <td>{{ dailymeal.coriander }}</td>
+        <td>{{ dailymeal.dry_savory }}</td>
+        <td>{{ dailymeal.dried_tarragon }}</td>
+        <td>{{ dailymeal.spearmint }}</td>
+        <td>{{ dailymeal.jafari }}</td>
+        <td>{{ dailymeal.reyhan }}</td>
+        <td>{{ dailymeal.pickle }}</td>
+        <td>{{ dailymeal.carrot }}</td>
+        <td>{{ dailymeal.shevid }}</td>
+        <td>{{ dailymeal.saffron }}</td>
+        <td>{{ dailymeal.verjuice }}</td>
+        <td>{{ dailymeal.lemon_juice }}</td>
+        <td>{{ dailymeal.white_vinegar }}</td>
+        <td>{{ dailymeal.white_flour }}</td>
+        <td>{{ dailymeal.toasted_flour }}</td>
+        <td>{{ dailymeal.toasted_powder }}</td>
+        <td>{{ dailymeal.rice_flour }}</td>
+        <td>{{ dailymeal.chickpea_flour }}</td>
+        <td>{{ dailymeal.sugar }}</td>
+        <td>{{ dailymeal.yogurt }}</td>
+        <td>{{ dailymeal.sumac }}</td>
+        <td>{{ dailymeal.starch }}</td>
+        <td>{{ dailymeal.vinegar }}</td>
+        <td>{{ dailymeal.mustard }}</td>
+        <td>{{ dailymeal.sauce }}</td>
+        <td>{{ dailymeal.rosewater }}</td>
+        <td>{{ dailymeal.barberry }}</td>
+        <td>{{ dailymeal.rock_salt }}</td>
+        <td>{{ dailymeal.pepper }}</td>
+        <td>{{ dailymeal.milk }}</td>
+        <td>{{ dailymeal.salt }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>ردیف</th>
+      <th>لینک</th>
+      <th>کاربر</th>
+      <th>تاریخ</th>
+      <th>ساعت</th>
+      <th>غذا</th>
+      <th>تعداد</th>
+      <th>برنج</th>
+      <th>گوشت گوسفند</th>
+      <th>گوشت گوساله</th>
+      <th>سینه مرغ</th>
+      <th>ران مرغ</th>
+      <th>ماهی</th>
+      <th>روغن جامد</th>
+      <th>روغن مایع (لیتر)</th>
+      <th>قلم گوساله</th>
+      <th>روغن زیتون</th>
+      <th>ماکارونی</th>
+      <th>رشته پلویی</th>
+      <th>رب انار</th>
+      <th>تخم مرغ (عدد)</th>
+      <th>روغن حیوانی</th>
+      <th>کره تک نفره</th>
+      <th>آبلیمو تک نفره</th>
+      <th>کره فله ای</th>
+      <th>رب گوجه</th>
+      <th>عدس</th>
+      <th>کشمش</th>
+      <th>گردو</th>
+      <th>لپه</th>
+      <th>لوبیا قرمز</th>
+      <th>گوجه فرنگی</th>
+      <th>پیاز</th>
+      <th>سیب زمینی</th>
+      <th>باقالی</th>
+      <th>کرفس</th>
+      <th>لوبیا سبز</th>
+      <th>بادمجان</th>
+      <th>لیمو امانی</th>
+      <th>لیمو</th>
+      <th>سبزی کوکو</th>
+      <th>سبزی قورمه</th>
+      <th>سبزی پلویی</th>
+      <th>سیر</th>
+      <th>فلفل دلمه</th>
+      <th>قارچ</th>
+      <th>نخود فرنگی</th>
+      <th>گشنیز</th>
+      <th>مرزه خشک</th>
+      <th>ترخون خشک</th>
+      <th>نعناع</th>
+      <th>جعفری</th>
+      <th>ریحان</th>
+      <th>خیارشور</th>
+      <th>هویج</th>
+      <th>شوید</th>
+      <th>زعفران (گرم)</th>
+      <th>آبغوره</th>
+      <th>آبلیمو</th>
+      <th>سرکه سفید (لیتر)</th>
+      <th>آرد سفید</th>
+      <th>آرد سوخاری</th>
+      <th>پودر سوخاری</th>
+      <th>آرد برنج</th>
+      <th>آرد نخود</th>
+      <th>شکر</th>
+      <th>ماست</th>
+      <th>سماق (عدد)</th>
+      <th>نشاسته</th>
+      <th>سرکه (لیتر)</th>
+      <th>سس خردل</th>
+      <th>سس</th>
+      <th>گلاب</th>
+      <th>زرشک</th>
+      <th>سنگ نمک</th>
+      <th>فلفل</th>
+      <th>شیر (لیتر)</th>
+      <th>نمک</th>
+    </tr>
+    </tfoot>
+  </table>
+
+{% endblock %}

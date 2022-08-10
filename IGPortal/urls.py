@@ -27,7 +27,7 @@ urlpatterns = [
     path('footer', footer, name="footer"),
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('', include('account.urls')),
+    path('accounts/', include('account.urls')),
     path('bascule/', include('bascule.urls')),
     path('block/', include('block.urls')),
     path('canteen/', include('canteen.urls')),
@@ -43,7 +43,6 @@ urlpatterns = [
     path('pm/', include('pm.urls')),
     path('product/', include('product.urls')),
     path('slider/', include('slider.urls')),
-    path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,11 @@
+.header-logout, .header-login {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.header-logout:hover, .header-login:hover {
+    text-decoration: none;
+    color: #c6c6c6;
+    font-style: italic;
+    font-size: medium;
+}

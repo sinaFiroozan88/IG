@@ -39,7 +39,8 @@ def register(request):
         password = register_form.cleaned_data.get('password')
         email = register_form.cleaned_data.get('email')
         User.objects.create_user(username=user_name, email=email, password=password)
-        return redirect('/login')
+        login_url = reverse('login')
+        return redirect(login_url)
 
     context = {
         'register_form': register_form
@@ -49,15 +50,16 @@ def register(request):
 
 def log_out(request):
     logout(request)
-    return redirect('/login')
+    login_url = reverse('login')
+    return redirect(login_url)
 
 
-@login_required(login_url='/login')
+@login_required(login_url='accounts/login')
 def user_account_main_page(request):
     return render(request, 'account/user_account_main.html', {})
 
 
-@login_required(login_url='/login')
+@login_required(login_url='accounts/login')
 def edit_user_profile(request):
     user_id = request.user.id
     user = User.objects.get(id=user_id)

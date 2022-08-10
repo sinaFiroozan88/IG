@@ -9,8 +9,8 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href="#"><img src="{% static 'img/K-LOGO1.png' %}" alt="logo" style="width:40px;"></a>
-	  	<a class="navbar-brand" href="#">Iran Gatch</a>
+           <a class="navbar-brand" href={% url 'home_page' %}><img src="{% static 'img/K-LOGO1.png' %}" alt="logo" style="width:40px;"></a>
+	  	<a class="navbar-brand" href={% url 'home_page' %}>Iran Gatch</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href={% url 'home_page' %}>Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Dashboard</a>
@@ -108,12 +108,6 @@
           <a class="dropdown-item" href="#">Food list</a>
         </div>
       </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#">Sign in</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -149,6 +143,7 @@
     <a class="header-logout" href="{% url 'logout' %}">Log out</a>
   {% else %}
     <a class="header-login" href="{% url 'login' %}">Login</a>
+      <p> / </p><a class="header-login" href="{% url 'register' %}">register</a>
 
     {#          <span class="px-1">Last Login:</span>#}
     {#          <span class="text-right" dir="rtl">{{ user.last_login }}</span>#}

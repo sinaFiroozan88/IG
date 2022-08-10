@@ -43,7 +43,6 @@ urlpatterns = [
     path('pm/', include('pm.urls')),
     path('product/', include('product.urls')),
     path('slider/', include('slider.urls')),
-    path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
 ]
 

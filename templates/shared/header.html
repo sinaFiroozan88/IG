@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>header</title>
-
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
 </head>
 
 
@@ -146,9 +146,9 @@
 {#        </span>#}
 
 {#    <span class="p-1 pr-md-4 ml-auto">#}
-    <a href="{% url 'logout' %}">Log out</a>
+    <a class="header-logout" href="{% url 'logout' %}">Log out</a>
   {% else %}
-    <a href="{% url 'login' %}">Login</a>
+    <a class="header-login" href="{% url 'login' %}">Login</a>
 
     {#          <span class="px-1">Last Login:</span>#}
     {#          <span class="text-right" dir="rtl">{{ user.last_login }}</span>#}

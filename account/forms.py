@@ -17,12 +17,12 @@ class EditUserForm(forms.Form):
 
 class LoginForm(forms.Form):
     user_name = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'user name', 'class':'form-control mr-sm-2'}),
+        widget=forms.TextInput(attrs={'placeholder': 'user name', 'class': 'form-control mr-sm-2'}),
         label='user name'
     )
 
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class':'form-control mr-sm-2'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class': 'form-control mr-sm-2'}),
         label='password'
     )
 
@@ -37,8 +37,8 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
     user_name = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder':'لطفا نام کاربری خود را وارد نمایید'}),
-        label='نام کاربری',
+        widget=forms.TextInput(attrs={'placeholder': 'please enter your username', 'class': 'form-control mr-sm-2'}),
+        label='username',
         validators=[
             validators.MaxLengthValidator(limit_value=20,
                                           message='تعداد کاراکترهای وارد شده نمیتواند بیشتر از 20 باشد'),
@@ -47,21 +47,24 @@ class RegisterForm(forms.Form):
     )
 
     email = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'لطفا ایمیل خود را وارد نمایید'}),
-        label='ایمیل',
+        widget=forms.TextInput(
+            attrs={'placeholder': 'please enter your email address', 'class': 'form-control mr-sm-2'}),
+        label='email',
         validators=[
-            validators.EmailValidator('ایمیل وارد شده معتبر نمیباشد')
+            validators.EmailValidator('email address is not valid')
         ]
     )
 
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'لطفا کلمه عبور خود را وارد نمایید'}),
-        label='کلمه ی عبور'
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'please enter your password', 'class': 'form-control mr-sm-2'}),
+        label='password'
     )
 
     re_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'لطفا تکرار کلمه عبور خود را وارد نمایید'}),
-        label='تکرار کلمه ی عبور'
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'please confirm your password', 'class': 'form-control mr-sm-2'}),
+        label='confirm password'
     )
 
     def clean_email(self):

@@ -143,3 +143,6 @@ body {
 .login-btn {
     border: none;
 }
+#form {
+    margin-top: 10%;
+}

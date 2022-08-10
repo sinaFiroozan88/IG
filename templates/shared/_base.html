@@ -18,9 +18,11 @@
 
 {% render_partial 'header' %}
 
+<div class="flex-wrapper">
 {% block content %}
-
 {% endblock %}
+</div>
+
 {% render_partial 'footer' %}
 {% include 'shared/_footerCDN.html' %}
 {% block footer_ref %}{% endblock %}

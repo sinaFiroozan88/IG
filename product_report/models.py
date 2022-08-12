@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class product_report(models.Model):
+class ProductReport(models.Model):
     # crasher operation
     Machinery = models.DurationField()
     Crasher_Elec_Consumption = models.IntegerField()

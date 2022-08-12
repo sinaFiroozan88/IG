@@ -1,16 +1,19 @@
+import datetime
+
 from django.db import models
 import datetime as dt
 
 
 class Hour(models.Model):
-    HOUR_CHOICES = [(dt.time( hour=x ), '{:02d}:00'.format( x )) for x in range( 0, 24 )]
+    HOUR_CHOICES = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(0, 24)]
     index = models.IntegerField(verbose_name='ردیف')
     hour = models.TimeField(verbose_name='ساعت آزمایش', choices=HOUR_CHOICES)
     active = models.BooleanField(verbose_name='فعال', default=True)
 
-    def __str__(self):
-        return self.hour
-        # return self.hour.strftime('%H:%M')
+    # def __str__(self):
+    #     hour = self.hour
+    #     return hour.strftime('%H')
+    # return hour.strftime('%H')
 
 
 class Quarter(models.Model):

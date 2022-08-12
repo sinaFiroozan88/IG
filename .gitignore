@@ -25,4 +25,6 @@ $RECYCLE.BIN/
 .history/
 *.code-workspace
 
-.idea
+.idea/
+/venv/
+db.sqlite3

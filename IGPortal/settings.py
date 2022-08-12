@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'slider',
     'site_setting',
     'django_render_partial',
+    'product_report'
 ]
 
 MIDDLEWARE = [

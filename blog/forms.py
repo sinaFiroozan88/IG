@@ -1,5 +1,7 @@
 from django import forms
 from .models import Post, Comment
+
+
 # from django.core import validators
 
 class PostForm(forms.ModelForm):
@@ -7,10 +9,11 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'text',)
 
+
 class CommentForm(forms.ModelForm):
-     class Meta:
-         model = Comment
-         fields={'author', 'text',}
+    class Meta:
+        model = Comment
+        fields = {'author', 'text', }
 
 # class CreateContactForm(forms.Form):
 #     full_name = forms.CharField(

@@ -4,12 +4,6 @@ from general.models import Hour, Quarry, Quarter
 # from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget, AdminSplitDateTime
 from django.forms import widgets
 from django.core.validators import MinValueValidator, MaxValueValidator
-# from durationwidget.widgets import TimeDurationWidget
-
-
-# from jalali_date.fields import JalaliDateField, SplitJalaliDateTimeField
-# from jalali_date.widgets import AdminJalaliDateWidget, AdminSplitJalaliDateTime
-
 
 class LabForm(forms.ModelForm):
     class Meta:
@@ -30,30 +24,11 @@ class LabForm(forms.ModelForm):
             # https://stackoverflow.com/questions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
             # 'published_date': widgets.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M:%S' ),
             'published_date': widgets.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M:%S' ),
-            # 'published_date': widgets.TimeInput(attrs={'type': 'time', min:"12:00", max:"18:00"}, format='%H:%m'),
 
-            # start = forms.DateTimeField(
-            # input_formats=['%Y-%m-%dT%H:%M'],
-            # widget=forms.DateTimeInput(
-            #     attrs={
-            #         'type': 'datetime-local',
-            #         'class': 'form-control'},
-            #     format='%Y-%m-%dT%H:%M' )
-        # )
-
-                      # widgets.DateTimeInput( attrs={
-                      #     'type': 'datetime-local',
-                      #     'class': 'form-control'
-                      # }, format='%Y-%m-%dT%H:%M' ),
-            # 'initial_setting_time': widgets,
-            # 'initial_setting_time': TimeDurationWidget(show_days=False, show_hours=False, show_minutes=True, show_seconds=True),
-            # 'final_setting_time': TimeDurationWidget(show_days=False, show_hours=False, show_minutes=True, show_seconds=True),
-            # https://pypi.org/project/django-durationwidget/s
             'einstrumenge': widgets.NumberInput(),
             'retained_63_micron': widgets.NumberInput(),
             'retained_200_micron': widgets.NumberInput(),
             'retained_500_micron': widgets.NumberInput(),
-            # 'crystal_water_rawmat': widgets.NumberInput(attrs={'style': 'width:60px'}),
             'crystal_water_stucco': widgets.NumberInput(),
             'soluble_anhydrite': widgets.NumberInput(),
             'hemihydrate': widgets.NumberInput(),

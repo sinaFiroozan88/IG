@@ -64,3 +64,16 @@ label{
     text-align: left;
 }
 
+.total {
+    width: 300px;
+    margin-left: 50px !important;
+}
+.total > p > input {
+    width: 300px;
+}
+.total > label {
+    width: 300px;
+}
+.label-bala {
+    width: 50%;
+}

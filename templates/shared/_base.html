@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Portal | Iran Gatch</title>
+    {% block title %}
+    {% endblock %}
     {% include 'shared/_headerCDN.html' %}
     {% block header_ref %}
 
@@ -19,8 +20,8 @@
 {% render_partial 'header' %}
 
 <div class="flex-wrapper">
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 </div>
 
 {% render_partial 'footer' %}

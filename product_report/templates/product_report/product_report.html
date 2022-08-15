@@ -1,0 +1,340 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+{% block title %}
+    <title>product report</title>
+{% endblock %}
+
+{% block header_ref %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% csrf_token %}
+
+    <div>
+        <div class="d-flex">
+            <div class="d-flex flex-column mt-2 mr-3">
+                <div class="d-block m-1 p-0 flex-shrink-0">
+                    <label for="id_gas_consumption">تاریخ</label>
+                    <p>{{ form.date }}</p>
+                    {% for error in form.date %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="test2 text-info text-center"><strong>عملکرد آسیاب سنگ</strong></div>
+                <div class="d-flex flex-wrap bg-light pb-0">
+                    <div class="d-inline-flex flex-wrap">
+
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_gas_consumption">ماشین آلات (ساعت)</label>
+                            <p>{{ form.Machinery }}</p>
+                            {% for error in form.Machinery %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_elec_consumption">مصرف برق (کیلو وات)</label>
+                            <p>{{ form.Crasher_Elec_Consumption }}</p>
+                            {% for error in form.Crasher_Elec_Consumption.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_gasoil_consumption">مصرف گازوئیل (لیتر)</label>
+                            <p>{{ form.Rockstone_Shortage }}</p>
+                            {% for error in form.gasoil_consumption.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0">
+                            <label for="id_block_stucco">مصرف گچ (تن)</label>
+                            <p>{{ form.No_Needed }}</p>
+                            {% for error in form.No_Needed.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0">
+                            <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                            <p>{{ form.Electrical_Fault }}</p>
+                            {% for error in form.Electrical_Fault.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0">
+                            <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                            <p>{{ form.Mechanical_Fault }}</p>
+                            {% for error in form.Mechanical_Fault.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0">
+                            <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                            <p>{{ form.Operator_Fault }}</p>
+                            {% for error in form.Operator_Fault.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0">
+                            <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                            <p>{{ form.Total_Fault }}</p>
+                            {% for error in form.Total_Fault.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="d-flex flex-column mt-2">
+            <div class="test2 text-success text-center"><strong>بسته بندی (متر مربع)</strong></div>
+            <div class="d-flex flex-wrap bg-light pb-0">
+                <div class="d-inline-flex flex-wrap">
+                    <div class="d-block m-1 p-0">
+                        <label for="id_block7_packing">بلوک 7 سانت</label>
+                        <p>{{ form.block7_packing }}</p>
+                        {% for error in form.block7_packing.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0">
+                        <label for="id_block8_packing">بلوک 8 سانت</label>
+                        <p>{{ form.block8_packing }}</p>
+                        {% for error in form.block8_packing.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block8mr_packing">بلوک 8 عایق</label>
+                        <p>{{ form.block8mr_packing }}</p>
+                        {% for error in form.block8mr_packing.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0 total">
+                        <label for="id_total_block_packing">جمع کل</label>
+                        <p>{{ form.total_block_packing }}</p>
+                        {% for error in form.total_block_packing.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column mt-2">
+            <div class="test2 text-success text-center"><strong>ضایعات بسته بندی (متر مربع)</strong></div>
+            <div class="d-flex flex-wrap bg-light pb-0">
+                <div class="d-inline-flex flex-wrap">
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block7_waste">بلوک 7 سانت</label>
+                        <p>{{ form.block7_waste }}</p>
+                        {% for error in form.block7_waste.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block8_waste">بلوک 8 سانت</label>
+                        <p>{{ form.block8_waste }}</p>
+                        {% for error in form.block8_waste.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block8mr_waste">بلوک 8 عایق</label>
+                        <p>{{ form.block8mr_waste }}</p>
+                        {% for error in form.block8mr_waste.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0 total">
+                        <label for="id_total_block_waste">جمع کل</label>
+                        <p>{{ form.total_block_waste }}</p>
+                        {% for error in form.total_block_waste.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column mt-1">
+            <div class="test2 text-success text-center"><strong>کارکرد تجهیزات (ساعت)</strong></div>
+            <div class="d-flex flex-wrap bg-light pb-0">
+                <div class="d-inline-flex flex-wrap">
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block7_operation">قالب 7 سانتی </label>
+                        <p>{{ form.block7_operation }}</p>
+                        {% for error in form.block7_operation.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block8_operation">قالب 8 سانتی </label>
+                        <p>{{ form.block8_operation }}</p>
+                        {% for error in form.block8_operation.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_dryer_operation">خشک کن</label>
+                        <p>{{ form.dryer_operation }}</p>
+                        {% for error in form.dryer_operation.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0 total">
+                        <label for="id_total_block_operation">جمع کل</label>
+                        <p>{{ form.total_block_operation }}</p>
+                        {% for error in form.total_block_operation.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column mt-1">
+            <div class="test2 text-success text-center"><strong>موجودی محصولات (بلوک: متر مربع ، بتوگیپس: تعداد کیسه
+                30
+                کیلویی)</strong></div>
+            <div class="d-flex flex-wrap bg-light pb-0">
+                <div class="d-inline-flex flex-wrap">
+                    <div class="d-inline-flex flex-wrap label-bala mt-2 p-1">
+                        <div class="test2 text-success text-center w-100"><strong>بلوک 7 سانت</strong></div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block7_packing_inventory">بسته بندی</label>
+                            <p>{{ form.block7_packing_inventory }}</p>
+                            {% for error in form.block7_packing_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block8_dryer_inventory">خشک کن</label>
+                            <p>{{ form.block8_dryer_inventory }}</p>
+                            {% for error in form.block8_dryer_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block7_rack_inventory">خشک باز</label>
+                            <p>{{ form.block7_rack_inventory }}</p>
+                            {% for error in form.block7_rack_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="d-inline-flex flex-wrap label-bala mt-2 p-1">
+                        <div class="test2 text-success text-center w-100"><strong>بلوک 8 سانت</strong></div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block8mr_packing_inventory">بسته بندی</label>
+                            <p>{{ form.block8mr_packing_inventory }}</p>
+                            {% for error in form.block8mr_packing_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block7_dryer_inventory">خشک کن</label>
+                            <p>{{ form.block7_dryer_inventory }}</p>
+                            {% for error in form.block7_dryer_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block8mr_rack_inventory">خشک باز</label>
+                            <p>{{ form.block8mr_rack_inventory }}</p>
+                            {% for error in form.block8mr_rack_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="d-inline-flex flex-wrap label-bala mt-2 p-1">
+                        <div class="test2 text-success text-center w-100"><strong>بلوک 8 عایق</strong></div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block8mr_packing_inventory">بسته بندی</label>
+                            <p>{{ form.block8mr_packing_inventory }}</p>
+                            {% for error in form.block8mr_packing_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block7_dryer_inventory">خشک کن</label>
+                            <p>{{ form.block7_dryer_inventory }}</p>
+                            {% for error in form.block7_dryer_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_block8_rack_inventory">خشک باز</label>
+                            <p>{{ form.block8_rack_inventory }}</p>
+                            {% for error in form.block8_rack_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="d-inline-flex flex-wrap label-bala mt-2 p-1">
+                        <div class="test2 text-success text-center w-100"><strong>بتو گیپس</strong></div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_betogips_inventory">بسته بندی</label>
+                            <p>{{ form.betogips_inventory }}</p>
+                            {% for error in form.betogips_inventory.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_betogips_wased">خشک کن</label>
+                            <p>{{ form.betogips_wased }}</p>
+                            {% for error in form.betogips_wased.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column mt-1">
+            <div class="test2 text-danger text-center"><strong>میزان توقفات (ساعت)</strong>
+                <p class="text-success">قالب 7 سانتی</p></div>
+            <div class="d-flex flex-wrap bg-light pb-0">
+                <div class="d-inline-flex flex-wrap">
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_block7_rawmat_stoppage">مواد اولیه</label>
+                        <p>{{ form.block7_rawmat_stoppage }}</p>
+                        {% for error in form.block7_rawmat_stoppage.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_hemihydrate">Hemihydrate</label>
+                        <p>{{ form.hemihydrate }}</p>
+                        {% for error in form.hemihydrate.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_low_solubility_anhydrite">Low.solub. anhydrite</label>
+                        <p>{{ form.low_solubility_anhydrite }}</p>
+                        {% for error in form.low_solubility_anhydrite.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div align="center">
+        <button type="submit" class="btn-lg">Save</button>
+    </div>
+    <br>
+    </form>
+{% endblock %}
+

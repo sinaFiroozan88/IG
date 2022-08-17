@@ -11,7 +11,6 @@ class ProductReport(models.Model):
         ("پنج شنبه", 'پنج شنبه'),
         ("جمعه", 'جمعه')
     )
-    day = models.CharField(blank=True, null=True, choices=day, max_length=99999999)
     date = models.DateField(verbose_name='تاریخ', )
     # crasher operation
     Machinery = models.IntegerField()
@@ -21,9 +20,10 @@ class ProductReport(models.Model):
     Electrical_Fault = models.IntegerField()
     Mechanical_Fault = models.IntegerField()
     Operator_Fault = models.IntegerField()
-    Total_Fault = models.IntegerField(editable=True, blank=True, null=True)
+    Total_Fault = models.IntegerField(blank=True, null=True)
     # Raw Material Consumption
-    Kenaf_Rawmat_Consumption = models.IntegerField()
+    Kenaf_Rawmat_Consumption_1 = models.IntegerField()
+    Kenaf_Rawmat_Consumption_2 = models.IntegerField()
     Kenaf_Stucco_Prod_1 = models.IntegerField()
     Kenaf_Stucco_Prod_2 = models.IntegerField()
     Ordinary_RawMat_Consumption_1 = models.IntegerField()
@@ -32,12 +32,15 @@ class ProductReport(models.Model):
     Ordinary_Stucco_Prod_2 = models.IntegerField()
     Block_RawMat_Consumption_1 = models.IntegerField()
     Block_RawMat_Consumption_2 = models.IntegerField()
+    Block_Stucco_Prod_1 = models.IntegerField()
+    Block_Stucco_Prod_2 = models.IntegerField()
     Nealit_RawMat_Consumption = models.IntegerField()
     Nealit_Sugar_Consumption = models.IntegerField()
     Nealit_Prod = models.IntegerField()
-    Total_Consumption = models.IntegerField(editable=False, blank=True, null=True)
-    Total_Prod_1 = models.IntegerField(editable=False, blank=True, null=True)
-    Total_Prod_2 = models.IntegerField(editable=False, blank=True, null=True)
+    Total_Consumption_1 = models.IntegerField(blank=True, null=True)
+    Total_Consumption_2 = models.IntegerField(blank=True, null=True)
+    Total_Prod_1 = models.IntegerField(blank=True, null=True)
+    Total_Prod_2 = models.IntegerField(blank=True, null=True)
     # stoppage causes
     No_Needed_1 = models.IntegerField()
     No_Needed_Nealit = models.IntegerField()
@@ -66,9 +69,9 @@ class ProductReport(models.Model):
     Operator_Base_Stoppage_1 = models.IntegerField()
     Operator_Base_Stoppage_2 = models.IntegerField()
     Operator_Base_Stoppage_Nealit = models.IntegerField()
-    Total_Stoppage_1 = models.IntegerField(editable=False, blank=True, null=True)
-    Total_Stoppage_2 = models.IntegerField(editable=False, blank=True, null=True)
-    Total_Stoppage_Nealit = models.IntegerField(editable=False, blank=True, null=True)
+    Total_Stoppage_1 = models.IntegerField(blank=True, null=True)
+    Total_Stoppage_2 = models.IntegerField(blank=True, null=True)
+    Total_Stoppage_Nealit = models.IntegerField(blank=True, null=True)
     # silo inventories
     Silo_1_Inventory = models.IntegerField()
     Silo_2_Inventory = models.IntegerField()
@@ -91,9 +94,9 @@ class ProductReport(models.Model):
 
     def save(self, *args, **kwargs):
         self.Total_Fault = self.Machinery + self.Operator_Fault + self.Mechanical_Fault + self.Electrical_Fault + self.No_Needed
-        self.Total_Consumption = self.Block_RawMat_Consumption_1 + self.Block_RawMat_Consumption_2 + self.Nealit_RawMat_Consumption + self.Kenaf_Rawmat_Consumption + self.Ordinary_RawMat_Consumption_1 + self.Ordinary_RawMat_Consumption_2
-        self.Total_Prod_1 = self.Kenaf_Stucco_Prod_1 + self.Ordinary_Stucco_Prod_1
-        self.Total_Prod_2 = self.Kenaf_Stucco_Prod_2 + self.Ordinary_Stucco_Prod_2
+        self.Total_Consumption = self.Block_RawMat_Consumption_1 + self.Block_RawMat_Consumption_2 + self.Nealit_RawMat_Consumption + self.Kenaf_Rawmat_Consumption_1 + self.Kenaf_Rawmat_Consumption_2 + self.Ordinary_RawMat_Consumption_1 + self.Ordinary_RawMat_Consumption_2
+        self.Total_Prod_1 = self.Kenaf_Stucco_Prod_1 + self.Ordinary_Stucco_Prod_1 + self.Block_Stucco_Prod_1
+        self.Total_Prod_2 = self.Kenaf_Stucco_Prod_2 + self.Ordinary_Stucco_Prod_2 + self
         self.Total_Stoppage_1 = self.Blackout_Stoppage_1 + self.Electrical_Stoppage_1 + self.End_production_Stoppage_1 + self.No_Needed_1 + self.Mechanical_Stoppage_1 + self.Gas_Cutout_Stoppage_1 + self.Gasoil_Cutout_Stoppage_1 + self.Initial_Start_Stoppage_1 + self.Operator_Base_Stoppage_1
         self.Total_Stoppage_2 = self.Blackout_Stoppage_2 + self.Electrical_Stoppage_2 + self.End_production_Stoppage_2 + self.No_Needed_2 + self.Mechanical_Stoppage_2 + self.Gas_Cutout_Stoppage_2 + self.Gasoil_Cutout_Stoppage_2 + self.Initial_Start_Stoppage_2 + self.Operator_Base_Stoppage_2
         self.Total_Stoppage_Nealit = self.Blackout_Stoppage_Nealit + self.Electrical_Stoppage_Nealit + self.End_production_Stoppage_Nealit + self.No_Needed_Nealit + self.Mechanical_Stoppage_Nealit + self.Gas_Cutout_Stoppage_Nealit + self.Gasoil_Cutout_Stoppage_Nealit + self.Initial_Start_Stoppage_Nealit + self.Operator_Base_Stoppage_Nealit

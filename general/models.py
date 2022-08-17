@@ -13,7 +13,7 @@ class Hour(models.Model):
     # def __str__(self):
     #     hour = self.hour
     #     return hour.strftime('%H')
-    # return hour.strftime('%H')
+    # return hour.strftime('%H')+
 
 
 class Quarter(models.Model):

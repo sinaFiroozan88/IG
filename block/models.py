@@ -11,8 +11,11 @@ class Block(models.Model):
         ('پنجشنبه', 'پنجشنبه'),
         ('جمعه', 'جمعه')
     )
+    author = models.ForeignKey('auth.User', on_delete=models.DO_NOTHING, blank=True, null=True,
+                               verbose_name='ثبت کننده')
     day = models.CharField(verbose_name='روز', max_length=8, choices=days)
     date = models.DateField(verbose_name='تاریخ', )
+    published_date = models.DateField(verbose_name='تاریخ ثبت', auto_now=True, blank=True, null=True)
     # consumption
     block_stucco = models.IntegerField(verbose_name='مصرف گچ (تن)')
     water_consumption = models.IntegerField(verbose_name='مصرف آب (لیتر)')

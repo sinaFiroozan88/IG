@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-label{
+label {
     /*display: flex;*/
     width: 175px;
     padding: 0;
@@ -14,14 +14,14 @@ label{
     font-size: small;
     color: #ffffff;
 }
-.test2{
+
+.test2 {
     background: #e8e8e8;
     border-bottom-width: 10px;
-    border-bottom: #c3e6cb;
-;
+    border-bottom: #c3e6cb;;
 }
 
-[id^=id_]{
+[id^=id_] {
     width: 175px;
     height: 35px;
     margin: 0;
@@ -40,12 +40,13 @@ label{
 /*    direction: rtl;*/
 /*    text-align: right;*/
 /*}*/
-#id_remarks:focus{
+#id_remarks:focus {
     width: 350px;
     height: 150px;
     direction: rtl;
     text-align: right;
 }
+
 /*#id_remarks:focus-within {*/
 /*    width: 400px;*/
 /*}*/
@@ -53,9 +54,10 @@ label{
 /*width: 400px;*/
 /*}*/
 
-.nonconf{
+.nonconf {
     display: inline-flex;
 }
+
 /*p[title~="HH"]{*/
 /*text-align: left;*/
 /*}*/
@@ -68,12 +70,69 @@ label{
     width: 300px;
     margin-left: 50px !important;
 }
+
 .total > p > input {
     width: 300px;
 }
+
 .total > label {
     width: 300px;
 }
+
 .label-bala {
     width: 50%;
+}
+
+.w100m {
+    width: 49%;
+}
+@media screen and (min-width: 600px) {
+    .nesf {
+        width: 45%;
+    }
+
+    .nesf > p > input, .nesf > label {
+        width: 100%;
+    }
+
+    .sols {
+        width: 27%;
+    }
+
+    .sols > p > input, .sols > label {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    * {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 10px !important;
+    }
+
+    .w100m {
+        width: 97%;
+    }
+}
+
+.hale {
+    border: 1px solid rgba(205, 205, 205, 0.55);
+}
+
+.font-size-coch {
+    font-size: 0.9rem;
+}
+
+.camel {
+    width: 100%;
+}
+
+.camel > p > input, .camel > label {
+    width: 100%;
+}
+.flex-wrapper {
+    padding: 5px;
 }

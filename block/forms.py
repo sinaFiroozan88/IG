@@ -7,28 +7,36 @@ from block.models import Block
 class BlockForm(forms.ModelForm):
     class Meta:
         model = Block
-        fields = (
+        fields = {
             'day', 'date', 'block_stucco', 'water_consumption', 'gas_consumption', 'elec_consumption',
-            'gasoil_consumption', 'block7_prod', 'block8_prod', 'block8mr_prod', 'total_block_prod', 'block7_packing',
+            'gasoil_consumption', 'block7_prod', 'block8_prod', 'block8mr_prod', 'total_block_prod',
+            'block7_packing',
             'block8_packing',
             'block8mr_packing', 'total_block_packing', 'block7_waste', 'block8_waste', 'block8mr_waste',
-            'total_block_waste', 'block7_operation', 'block8_operation', 'dryer_operation', 'total_block_operation',
-            'block7_packing_inventory', 'block7_dryer_inventory', 'block7_rack_inventory', 'block8_packing_inventory',
-            'block8_dryer_inventory', 'block8_rack_inventory', 'block8mr_packing_inventory', 'block8mr_dryer_inventory',
+            'total_block_waste', 'block7_operation', 'block8_operation', 'dryer_operation',
+            'total_block_operation',
+            'block7_packing_inventory', 'block7_dryer_inventory', 'block7_rack_inventory',
+            'block8_packing_inventory',
+            'block8_dryer_inventory', 'block8_rack_inventory', 'block8mr_packing_inventory',
+            'block8mr_dryer_inventory',
             'block8mr_rack_inventory', 'block7_rawmat_stoppage', 'block7_operator_stoppage',
             'block7_mechanical_stoppage',
             'block7_electrical_stoppage', 'block7_noNeeded_stoppage', 'block7_rackFull_stoppage',
             'block7_gasoil_stoppage', 'block7_gas_stoppage', 'block7_elec_stoppage', 'block7_total_stoppage',
             'block8_rawmat_stoppage',
             'block8_operator_stoppage', 'block8_mechanical_stoppage', 'block8_electrical_stoppage',
+            'block8_mechanical16_stoppage', 'block8_electrical16_stoppage',
             'block8_noNeeded_stoppage', 'block8_rackFull_stoppage', 'block8_gasoil_stoppage',
             'block8_gas_stoppage', 'block8_elec_stoppage', 'block8_total_stoppage', 'dryer_rawmat_stoppage',
             'dryer_operator_stoppage', 'dryer_mechanical_stoppage', 'dryer_electrical_stoppage',
+            'dryer_mechanical16_stoppage', 'dryer_electrical16_stoppage',
             'dryer_noNeeded_stoppage', 'dryer_rackFull_stoppage', 'dryer_gasoil_stoppage',
-            'dryer_gas_stoppage', 'dryer_elec_stoppage', 'dryer_total_stoppage','betogips_inventory', 'betogips_wased')
-        widget = {
+            'dryer_gas_stoppage', 'dryer_elec_stoppage', 'dryer_total_stoppage', 'betogips_inventory',
+            'betogips_wased', 'block7_mechanical16_stoppage',
+            'block7_electrical16_stoppage'}
+        widgets = {
             'day': widgets.Select(),
-            'date': widgets.DateInput(),
+            'date': widgets.DateInput(attrs={'type': 'date'}),
             'block_stucco': widgets.NumberInput(),
             'water_consumption': widgets.NumberInput(),
             'gas_consumption': widgets.NumberInput(),
@@ -61,6 +69,8 @@ class BlockForm(forms.ModelForm):
             'block8mr_rack_inventory': widgets.NumberInput(),
             'block7_rawmat_stoppage': widgets.NumberInput(),
             'block7_operator_stoppage': widgets.NumberInput(),
+            'block7_mechanical16_stoppage': widgets.NumberInput(),
+            'block7_electrical16_stoppage': widgets.NumberInput(),
             'block7_mechanical_stoppage': widgets.NumberInput(),
             'block7_electrical_stoppage': widgets.NumberInput(),
             'block7_noNeeded_stoppage': widgets.NumberInput(),
@@ -92,3 +102,6 @@ class BlockForm(forms.ModelForm):
             'betogips_inventory': widgets.NumberInput(),
             'betogips_wased': widgets.NumberInput()
         }
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)

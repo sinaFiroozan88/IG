@@ -5,11 +5,13 @@ from general.models import Hour, Quarry, Quarter
 from django.forms import widgets
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 class LabForm(forms.ModelForm):
     class Meta:
         model = Lab
         # duration = forms.DurationField(widget=TimeDurationWidget(show_days=True, show_hours=True, show_minutes=True, show_seconds=True), required=False )
-        fields = {'created_date', 'hour','quarter', 'line', 'mine', 'einstrumenge', 'initial_setting_time', 'final_setting_time',
+        fields = {'created_date', 'hour', 'quarter', 'line', 'mine', 'einstrumenge', 'initial_setting_time',
+                  'final_setting_time',
                   'crystal_water_rawmat', 'purity_rm', 'crystal_water_stucco', 'water_gypsum_ratio',
                   'retained_63_micron',
                   'retained_200_micron', 'retained_500_micron', 'soluble_anhydrite', 'hemihydrate',
@@ -23,7 +25,7 @@ class LabForm(forms.ModelForm):
             # 'created_date': AdminJalaliDateWidget(),
             # https://stackoverflow.com/questions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
             # 'published_date': widgets.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M:%S' ),
-            'published_date': widgets.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M:%S' ),
+            'published_date': widgets.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M:%S'),
 
             'einstrumenge': widgets.NumberInput(),
             'retained_63_micron': widgets.NumberInput(),
@@ -52,19 +54,17 @@ class LabForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super().__init__( *args, **kwargs )
+        super().__init__(*args, **kwargs)
         self.fields['quarter'].queryset = Quarter.objects.none()
 
         if 'hour' in self.data:
             try:
-                hour_id = int( self.data.get( 'hour' ) )
-                self.fields['quarter'].queryset = Quarter.objects.filter( hour_id=hour_id ).order_by( 'hour' )
+                hour_id = int(self.data.get('hour'))
+                self.fields['quarter'].queryset = Quarter.objects.filter(hour_id=hour_id).order_by('hour')
             except (ValueError, TypeError):
                 pass  # invalid input from the client; ignore and fallback to empty City queryset
         elif self.instance.pk:
-            self.fields['quarter'].queryset = self.instance.hour.quarter_set.order_by( 'quarter' )
-
-
+            self.fields['quarter'].queryset = self.instance.hour.quarter_set.order_by('quarter')
 
 #     class Meta:
 #         model = TagCat

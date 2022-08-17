@@ -2,15 +2,6 @@ from django.db import models
 
 
 class ProductReport(models.Model):
-    day = (
-        ("شنبه", 'شنبه'),
-        ("یک شنبه", 'یک شنبه'),
-        ("دو شنبه", 'دو شنبه'),
-        ("سه شنبه", 'سه شنبه'),
-        ("چهار شنبه", 'چهار شنبه'),
-        ("پنج شنبه", 'پنج شنبه'),
-        ("جمعه", 'جمعه')
-    )
     date = models.DateField(verbose_name='تاریخ', )
     # crasher operation
     Machinery = models.IntegerField()
@@ -96,7 +87,7 @@ class ProductReport(models.Model):
         self.Total_Fault = self.Machinery + self.Operator_Fault + self.Mechanical_Fault + self.Electrical_Fault + self.No_Needed
         self.Total_Consumption = self.Block_RawMat_Consumption_1 + self.Block_RawMat_Consumption_2 + self.Nealit_RawMat_Consumption + self.Kenaf_Rawmat_Consumption_1 + self.Kenaf_Rawmat_Consumption_2 + self.Ordinary_RawMat_Consumption_1 + self.Ordinary_RawMat_Consumption_2
         self.Total_Prod_1 = self.Kenaf_Stucco_Prod_1 + self.Ordinary_Stucco_Prod_1 + self.Block_Stucco_Prod_1
-        self.Total_Prod_2 = self.Kenaf_Stucco_Prod_2 + self.Ordinary_Stucco_Prod_2 + self
+        self.Total_Prod_2 = self.Kenaf_Stucco_Prod_2 + self.Ordinary_Stucco_Prod_2 + self.Block_Stucco_Prod_2
         self.Total_Stoppage_1 = self.Blackout_Stoppage_1 + self.Electrical_Stoppage_1 + self.End_production_Stoppage_1 + self.No_Needed_1 + self.Mechanical_Stoppage_1 + self.Gas_Cutout_Stoppage_1 + self.Gasoil_Cutout_Stoppage_1 + self.Initial_Start_Stoppage_1 + self.Operator_Base_Stoppage_1
         self.Total_Stoppage_2 = self.Blackout_Stoppage_2 + self.Electrical_Stoppage_2 + self.End_production_Stoppage_2 + self.No_Needed_2 + self.Mechanical_Stoppage_2 + self.Gas_Cutout_Stoppage_2 + self.Gasoil_Cutout_Stoppage_2 + self.Initial_Start_Stoppage_2 + self.Operator_Base_Stoppage_2
         self.Total_Stoppage_Nealit = self.Blackout_Stoppage_Nealit + self.Electrical_Stoppage_Nealit + self.End_production_Stoppage_Nealit + self.No_Needed_Nealit + self.Mechanical_Stoppage_Nealit + self.Gas_Cutout_Stoppage_Nealit + self.Gasoil_Cutout_Stoppage_Nealit + self.Initial_Start_Stoppage_Nealit + self.Operator_Base_Stoppage_Nealit

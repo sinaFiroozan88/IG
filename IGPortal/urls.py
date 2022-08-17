@@ -27,6 +27,7 @@ urlpatterns = [
     path('plc/', include('plc.urls')),
     path('pm/', include('pm.urls')),
     path('product/', include('product.urls')),
+    path('', include('product_report.urls')),
     path('slider/', include('slider.urls')),
 ]
 

@@ -1,0 +1,102 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+{% block title %}
+    <title>product report</title>
+{% endblock %}
+
+{% block header_ref %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% csrf_token %}
+    <form method="post">
+        <div>
+            <div class="d-flex">
+                <div class="d-flex flex-column mt-2 mr-3">
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_gas_consumption">تاریخ</label>
+                        <p>{{ form.date }}</p>
+                        {% for error in form.date %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="test2 text-info text-center"><strong>عملکرد آسیاب سنگ</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">ماشین آلات (ساعت)</label>
+                                <p>{{ form.Machinery }}</p>
+                                {% for error in form.Machinery %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_elec_consumption">مصرف برق (کیلو وات)</label>
+                                <p>{{ form.Crasher_Elec_Consumption }}</p>
+                                {% for error in form.Crasher_Elec_Consumption.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gasoil_consumption">مصرف گازوئیل (لیتر)</label>
+                                <p>{{ form.Rockstone_Shortage }}</p>
+                                {% for error in form.gasoil_consumption.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_block_stucco">مصرف گچ (تن)</label>
+                                <p>{{ form.No_Needed }}</p>
+                                {% for error in form.No_Needed.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                                <p>{{ form.Electrical_Fault }}</p>
+                                {% for error in form.Electrical_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                                <p>{{ form.Mechanical_Fault }}</p>
+                                {% for error in form.Mechanical_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                                <p>{{ form.Operator_Fault }}</p>
+                                {% for error in form.Operator_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">مصرف آب (لیتر)</label>
+                                <p>{{ form.Total_Fault }}</p>
+                                {% for error in form.Total_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <br>
+
+        <div align="center">
+            <button type="submit" class="btn-lg">Save</button>
+        </div>
+        <br>
+    </form>
+{% endblock %}
+

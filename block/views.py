@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.urls import reverse
 from django.utils import timezone
 from django.views import View
 
@@ -27,7 +28,7 @@ from .models import Block
 
 class BlockView(View):
     def get(self, request):
-        form = BlockForm()
+        form = BlockForm
         context = {
             "form": form
         }
@@ -35,12 +36,16 @@ class BlockView(View):
 
     def post(self, request):
         form = BlockForm(request.POST)
-        if form.is_valid():
-            block_item = form.save(commit=False)
-            block_item.author = request.user
-            block_item.published_date = timezone.now()
-            block_item.save()
         context = {
             "form": form
         }
-        return render(request, 'block/block.html', context)
+        # block_item = form.save(commit=False)
+        form.author = request.user
+        form.published_date = timezone.now()
+        if form.is_valid():
+
+            form.save()
+            return redirect(reverse('home_page'))
+        else:
+            return redirect(reverse('Product_Report_URL'))
+

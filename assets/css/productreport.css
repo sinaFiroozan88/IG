@@ -1,3 +1,13 @@
 .detail-title {
     margin-top: 60%;
 }
+
+.detail-link {
+    text-decoration: none;
+    color: black;
+}
+
+.detail-link:hover {
+    text-decoration: none;
+    color: black;
+}

@@ -10,303 +10,607 @@
     <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
 {% endblock %}
 {% block content %}
-    <form method="post" id="labForm" data-quarters-url="{% url 'ajax_load_quarters' %}" novalidate>
 
-    {% csrf_token %}
 
-    <div class="d-flex flex-column mt-2">
-      <div class="test2 text-info text-center"><strong>Sampling Time Interval</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_author">Author</label>
-            <p>{{ form.author }}</p>
-            {% for error in form.author.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_created_date">Created Date</label>
-            <p>{{ form.For_Date }}</p>
-            {% for error in form.For_Date.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_hour">Hour</label>
-            <p>{{ form.hour }}</p>
-            {% for error in form.hour.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_quarter">15 Minute</label>
-            <p>{{ form.quarter }}</p>
-            {% for error in form.quarter.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_published_date">Published date</label>
-            <p>{{ form.published_date }}</p>
-            {% for error in form.published_date.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <div class="d-flex">
+                <div class="d-flex flex-column mt-2 mr-3">
+                    <div class="test2 text-info text-center"><strong>کلی</strong></div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_gas_consumption">تاریخ</label>
+                        <p>{{ form.For_Date }}</p>
+                        {% for error in form.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="d-block m-1 p-0 flex-shrink-0">
+                        <label for="id_gas_consumption">ثبت کننده</label>
+                        <p>{{ form.author }}</p>
+                        {% for error in form.For_Date.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="test2 text-info text-center"><strong>عملکرد آسیاب سنگ</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
 
-    <div class="d-flex flex-column mt-2">
-      <div class="test2 text-info text-center"><strong>Raw Material Quality</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0">
-            <label for="id_crystal_water_rawmat">RM Crystal Water</label>
-            <p>{{ form.crystal_water_rawmat }}</p>
-            {% for error in form.crystal_water_rawmat.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0">
-            <label for="id_purity_rm">Gypsum rock Purity</label>
-            <p>{{ form.purity_rm }}</p>
-            {% for error in form.purity_rm.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_line">Line</label>
-            <p>{{ form.line }}</p>
-            {% for error in form.line.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_mine">Quarry</label>
-            <p>{{ form.mine }}</p>
-            {% for error in form.mine.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_product_silo">Product silo</label>
-            <p>{{ form.product_silo }}</p>
-            {% for error in form.product_silo.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-2">
-      <div class="test2 text-success text-center"><strong>Setting Time</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_initial_setting_time">Initial setting time</label>
-            <p data-toggle="tooltip" title="<p class='text-left text-danger m-0 font-weight-bold'>HH: 4m<br><span class='text-warning'>H: 3<br>L: 2:30</span><br>LL: 2m</p>">{{ form.initial_setting_time }}</p>
-          {% for error in form.initial_setting_time.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_final_setting_time">Final setting time</label>
-            <p data-toggle="tooltip" title="<p class='text-left text-danger m-0 font-weight-bold'>HH: 4m<span class='text-warning'><br>H: 3<br>L: 2:30</span><br>LL: 2m</p>">{{ form.final_setting_time }}</p>
-          {% for error in form.final_setting_time.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-1">
-      <div class="test2 text-success text-center"><strong>Calcination</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_einstrumenge">Einstrumenge</label>
-            <p>{{ form.einstrumenge }}</p>
-            {% for error in form.einstrumenge.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_crystal_water_stucco">Crystal water</label>
-            <p>{{ form.crystal_water_stucco }}</p>
-            {% for error in form.crystal_water_stucco.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_water_gypsum_ratio">WaterGyp ratio</label>
-            <p>{{ form.water_gypsum_ratio }}</p>
-            {% for error in form.water_gypsum_ratio.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_free_moisture">Free Moisture</label>
-            <p>{{ form.free_moisture }}</p>
-            {% for error in form.free_moisture.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-1">
-      <div class="test2 text-success text-center"><strong>Particle Size</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_retained_63_micron">Sieve <strong>63</strong> micron</label>
-            <p>{{ form.retained_63_micron }}</p>
-            {% for error in form.retained_63_micron.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_retained_200_micron">Sieve <strong>200</strong> micron</label>
-            <p>{{ form.retained_200_micron }}</p>
-            {% for error in form.retained_200_micron.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_retained_500_micron">Sieve <strong>500</strong> micron</label>
-            <p>{{ form.retained_500_micron }}</p>
-            {% for error in form.retained_500_micron.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-1">
-      <div class="test2 text-success text-center"><strong>Anhidrite</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_soluble_anhydrite">Soluble anhydrite</label>
-            <p>{{ form.soluble_anhydrite }}</p>
-            {% for error in form.soluble_anhydrite.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_hemihydrate">Hemihydrate</label>
-            <p>{{ form.hemihydrate }}</p>
-            {% for error in form.hemihydrate.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_low_solubility_anhydrite">Low.solub. anhydrite</label>
-            <p>{{ form.low_solubility_anhydrite }}</p>
-            {% for error in form.low_solubility_anhydrite.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-1">
-      <div class="test2 text-danger text-center"><strong>Non Conformity</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-inline-wrap">
-          <div class="d-block m-1 p-0">
-            <label for="id_non_conformity">Non conformity</label>
-            <p>{{ form.non_conformity }}</p>
-          </div>
-          <div class="nonconf m-1 p-0 flex-wrap">
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_CS">Non conformity CS</label>
-              <p>{{ form.nonconf_CS }}</p>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">ماشین آلات (ساعت)</label>
+                                <p>{{ form.Machinery }}</p>
+                                {% for error in form.Machinery.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_elec_consumption">مصرف برق کراشر (عدد)</label>
+                                <p>{{ form.Crasher_Elec_Consumption }}</p>
+                                {% for error in form.Crasher_Elec_Consumption.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gasoil_consumption">مواد اولیه (ساعت)</label>
+                                <p>{{ form.Rockstone_Shortage }}</p>
+                                {% for error in form.gasoil_consumption.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_block_stucco">عدم نیاز (ساعت)</label>
+                                <p>{{ form.No_Needed }}</p>
+                                {% for error in form.No_Needed.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">الکتریکال (ساعت)</label>
+                                <p>{{ form.Electrical_Fault }}</p>
+                                {% for error in form.Electrical_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">مکانیکال (ساعت)</label>
+                                <p>{{ form.Mechanical_Fault }}</p>
+                                {% for error in form.Mechanical_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">نیروی انسانی (ساعت)</label>
+                                <p>{{ form.Operator_Fault }}</p>
+                                {% for error in form.Operator_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0">
+                                <label for="id_water_consumption">جمع (ساعت)</label>
+                                <p contenteditable="false">{{ form.Total_Fault }}</p>
+                                {% for error in form.Total_Fault.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>مصرف مواد اولیه</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف کناف 1 (تن)</label>
+                                <p>{{ form.Kenaf_Rawmat_Consumption_1 }}</p>
+                                {% for error in form.Kenaf_Rawmat_Consumption_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف کناف 2 (تن)</label>
+                                <p>{{ form.Kenaf_Rawmat_Consumption_2 }}</p>
+                                {% for error in form.Kenaf_Rawmat_Consumption_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید کناف 1 (تن)</label>
+                                <p>{{ form.Kenaf_Stucco_Prod_1 }}</p>
+                                {% for error in form.Kenaf_Stucco_Prod_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید کناف 1 (تن)</label>
+                                <p>{{ form.Kenaf_Stucco_Prod_2 }}</p>
+                                {% for error in form.Kenaf_Stucco_Prod_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف معمولی 1 (تن)</label>
+                                <p>{{ form.Ordinary_RawMat_Consumption_1 }}</p>
+                                {% for error in form.Ordinary_RawMat_Consumption_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف معمولی 2 (تن)</label>
+                                <p>{{ form.Ordinary_RawMat_Consumption_2 }}</p>
+                                {% for error in form.Ordinary_RawMat_Consumption_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید معمولی 1 (تن)</label>
+                                <p>{{ form.Ordinary_Stucco_Prod_1 }}</p>
+                                {% for error in form.Ordinary_Stucco_Prod_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید معمولی 2 (تن)</label>
+                                <p>{{ form.Ordinary_Stucco_Prod_2 }}</p>
+                                {% for error in form.Ordinary_Stucco_Prod_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف بلوک 1 (تن)</label>
+                                <p>{{ form.Block_RawMat_Consumption_1 }}</p>
+                                {% for error in form.Block_RawMat_Consumption_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف بلوک 2 (تن)</label>
+                                <p>{{ form.Block_RawMat_Consumption_2 }}</p>
+                                {% for error in form.Block_RawMat_Consumption_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید بلوک 1 (تن)</label>
+                                <p>{{ form.Block_Stucco_Prod_1 }}</p>
+                                {% for error in form.Block_Stucco_Prod_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید بلوک 2 (تن)</label>
+                                <p>{{ form.Block_Stucco_Prod_2 }}</p>
+                                {% for error in form.Block_Stucco_Prod_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف بلوک 1 (تن)</label>
+                                <p>{{ form.Block_RawMat_Consumption_1 }}</p>
+                                {% for error in form.Block_RawMat_Consumption_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف بلوک 2 (تن)</label>
+                                <p>{{ form.Block_RawMat_Consumption_2 }}</p>
+                                {% for error in form.Block_RawMat_Consumption_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف مواد خام نئالیت (تن)</label>
+                                <p>{{ form.Nealit_RawMat_Consumption }}</p>
+                                {% for error in form.Nealit_RawMat_Consumption.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف شکر نئالیت (تن)</label>
+                                <p>{{ form.Nealit_Sugar_Consumption }}</p>
+                                {% for error in form.Nealit_Sugar_Consumption.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">تولید نئالیت (تن)(دقت کیلوگرم)</label>
+                                <p>{{ form.Nealit_Prod }}</p>
+                                {% for error in form.Nealit_Prod.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مجموع مصرف 1 (تن)(دقت کیلوگرم)</label>
+                                <p>{{ form.Total_Consumption_1 }}</p>
+                                {% for error in form.Total_Consumption_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مجموع مصرف 2 (تن)(دقت کیلوگرم)</label>
+                                <p>{{ form.Total_Consumption_2 }}</p>
+                                {% for error in form.Total_Consumption_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مجموع تولید 1 (تن)(دقت کیلوگرم)</label>
+                                <p>{{ form.Total_Prod_1 }}</p>
+                                {% for error in form.Total_Prod_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مجموع تولید 2 (تن)(دقت کیلوگرم)</label>
+                                <p>{{ form.Total_Prod_2 }}</p>
+                                {% for error in form.Total_Prod_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>علت توقفات خط 1</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">عدم نیاز خط 1 (دقیقه)</label>
+                                <p>{{ form.No_Needed_1 }}</p>
+                                {% for error in form.No_Needed_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف الکتریکال خط 1 (دقیقه)</label>
+                                <p>{{ form.Electrical_Stoppage_1 }}</p>
+                                {% for error in form.Electrical_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف مکانیکال خط 1 (دقیقه)</label>
+                                <p>{{ form.Mechanical_Stoppage_1 }}</p>
+                                {% for error in form.Mechanical_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع برق خط 1 (دقیقه)</label>
+                                <p>{{ form.Blackout_Stoppage_1 }}</p>
+                                {% for error in form.Blackout_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع گاز خط 1 (دقیقه)</label>
+                                <p>{{ form.Gas_Cutout_Stoppage_1 }}</p>
+                                {% for error in form.Gas_Cutout_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع گازوئیل خط 1 (دقیقه)</label>
+                                <p>{{ form.Gasoil_Cutout_Stoppage_1 }}</p>
+                                {% for error in form.Gasoil_Cutout_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف شروع تولید خط 1 (دقیقه)</label>
+                                <p>{{ form.Initial_Start_Stoppage_1 }}</p>
+                                {% for error in form.Initial_Start_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف پایان تولید خط 1 (دقیقه)</label>
+                                <p>{{ form.End_production_Stoppage_1 }}</p>
+                                {% for error in form.End_production_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف توسط اوپراتور خط 1 (دقیقه)</label>
+                                <p>{{ form.Operator_Base_Stoppage_1 }}</p>
+                                {% for error in form.Operator_base_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مجموع توقف خط 1 </label>
+                                <p>{{ form.Total_Stoppage_1 }}</p>
+                                {% for error in form.Total_Stoppage_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>علت توقفات خط 2</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">عدم نیاز خط 2 (دقیقه)</label>
+                                <p>{{ form.No_Needed_2 }}</p>
+                                {% for error in form.No_Needed_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف الکتریکال خط 2 (دقیقه)</label>
+                                <p>{{ form.Electrical_Stoppage_2 }}</p>
+                                {% for error in form.Electrical_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف مکانیکال خط 2 (دقیقه)</label>
+                                <p>{{ form.Mechanical_Stoppage_2 }}</p>
+                                {% for error in form.Mechanical_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع برق خط 2 (دقیقه)</label>
+                                <p>{{ form.Blackout_Stoppage_2 }}</p>
+                                {% for error in form.Blackout_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع گاز خط 2 (دقیقه)</label>
+                                <p>{{ form.Gas_Cutout_Stoppage_2 }}</p>
+                                {% for error in form.Gas_Cutout_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع گازوئیل خط 2 (دقیقه)</label>
+                                <p>{{ form.Gasoil_Cutout_Stoppage_2 }}</p>
+                                {% for error in form.Gasoil_Cutout_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف شروع تولید خط 2 (دقیقه)</label>
+                                <p>{{ form.Initial_Start_Stoppage_2 }}</p>
+                                {% for error in form.Initial_Start_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف پایان تولید خط 1 (دقیقه)</label>
+                                <p>{{ form.End_production_Stoppage_2 }}</p>
+                                {% for error in form.End_production_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف توسط اوپراتور خط 2 (دقیقه)</label>
+                                <p>{{ form.Operator_Base_Stoppage_2 }}</p>
+                                {% for error in form.Operator_Base_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">جمع توقفات خط 2</label>
+                                <p>{{ form.Total_Stoppage_2 }}</p>
+                                {% for error in form.Total_Stoppage_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>علت توقفات نئالیت</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">عدم نیاز خط نئالیت (دقیقه)</label>
+                                <p>{{ form.No_Needed_Nealit }}</p>
+                                {% for error in form.No_Needed_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف الکتریکال نئالیت (دقیقه)</label>
+                                <p>{{ form.Electrical_Stoppage_Nealit }}</p>
+                                {% for error in form.Electrical_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف مکانیکال نئالیت (دقیقه)</label>
+                                <p>{{ form.Mechanical_Stoppage_Nealit }}</p>
+                                {% for error in form.Mechanical_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع برق نئالیت (دقیقه)</label>
+                                <p>{{ form.Blackout_Stoppage_Nealit }}</p>
+                                {% for error in form.Blackout_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع گاز نئالیت (دقیقه)</label>
+                                <p>{{ form.Gas_Cutout_Stoppage_Nealit }}</p>
+                                {% for error in form.Gas_Cutout_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف قطع گازوئیل نئالیت (دقیقه)</label>
+                                <p>{{ form.Gasoil_Cutout_Stoppage_Nealit }}</p>
+                                {% for error in form.Gasoil_Cutout_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف شروع تولید نئالیت (دقیقه)</label>
+                                <p>{{ form.Initial_Start_Stoppage_Nealit }}</p>
+                                {% for error in form.Initial_Start_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف پایان تولید نئالیت (دقیقه)</label>
+                                <p>{{ form.End_production_Stoppage_Nealit }}</p>
+                                {% for error in form.End_production_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">توقف توسط اوپراتور نئالیت (دقیقه)</label>
+                                <p>{{ form.Operator_Base_Stoppage_Nealit }}</p>
+                                {% for error in form.Operator_Base_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">جمع توقفات نئالیت</label>
+                                <p>{{ form.Total_Stoppage_Nealit }}</p>
+                                {% for error in form.Total_Stoppage_Nealit.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>موجودی سیلو ها</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">موجودی سیلو 1</label>
+                                <p>{{ form.Silo_1_Inventory }}</p>
+                                {% for error in form.Silo_1_Inventory.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">موجودی سیلو 2</label>
+                                <p>{{ form.Silo_2_Inventory }}</p>
+                                {% for error in form.Silo_2_Inventory.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">موجودی بلوک سیلو شمالی</label>
+                                <p>{{ form.Block_Silo_N_Inventory }}</p>
+                                {% for error in form.Block_Silo_N_Inventory.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">موجودی بلوک سیلو جنوبی</label>
+                                <p>{{ form.Block_Silo_S_Inventory }}</p>
+                                {% for error in form.Block_Silo_S_Inventory.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">موجودی سیلو 800 تنی</label>
+                                <p>{{ form.Silo_800_Inventory }}</p>
+                                {% for error in form.Silo_800_Inventory.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>مصرف انرژی خط 1</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گاز قبل ظهر خط 1</label>
+                                <p>{{ form.Gas_Consumption_AM_1 }}</p>
+                                {% for error in form.Gas_Consumption_AM_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گاز بعد از ظهر خط 1</label>
+                                <p>{{ form.Gas_Consumption_PM_1 }}</p>
+                                {% for error in form.Gas_Consumption_PM_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گازوئیل قبل ظهر خط 1</label>
+                                <p>{{ form.Gasoil_Consumption_AM_1 }}</p>
+                                {% for error in form.Gasoil_Consumption_AM_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گازوئیل بعد ظهر خط 1</label>
+                                <p>{{ form.Gasoil_Consumption_PM_1 }}</p>
+                                {% for error in form.Gasoil_Consumption_PM_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">فشار گاز خط 1</label>
+                                <p>{{ form.Gas_Presure_1 }}</p>
+                                {% for error in form.Gasoil_Consumption_PM_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">دمای گاز خط 1</label>
+                                <p>{{ form.Gas_Temperature_1 }}</p>
+                                {% for error in form.Gasoil_Consumption_PM_1.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test2 text-info text-center"><strong>مصرف انرژی خط 2</strong></div>
+                    <div class="d-flex flex-wrap bg-light pb-0">
+                        <div class="d-inline-flex flex-wrap">
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گاز قبل ظهر خط 2</label>
+                                <p>{{ form.Gas_Consumption_AM_2 }}</p>
+                                {% for error in form.Gas_Consumption_AM_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گاز بعد از ظهر خط 2</label>
+                                <p>{{ form.Gas_Consumption_PM_2 }}</p>
+                                {% for error in form.Gas_Consumption_PM_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گازوئیل قبل ظهر خط 2</label>
+                                <p>{{ form.Gasoil_Consumption_AM_2 }}</p>
+                                {% for error in form.Gasoil_Consumption_AM_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">مصرف گازوئیل بعد ظهر خط 2</label>
+                                <p>{{ form.Gasoil_Consumption_PM_2 }}</p>
+                                {% for error in form.Gasoil_Consumption_PM_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">فشار گاز خط 2</label>
+                                <p>{{ form.Gas_Presure_2 }}</p>
+                                {% for error in form.Gas_Presure_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-block m-1 p-0 flex-shrink-0">
+                                <label for="id_gas_consumption">دمای گاز خط 2</label>
+                                <p>{{ form.Gas_Temperature_2 }}</p>
+                                {% for error in form.Gasoil_Consumption_PM_2.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_EI">Non conformity EI</label>
-              <p>{{ form.nonconf_EI }}</p>
+            <br>
+            <div align="center">
+                <button type="submit" class="btn-lg">Save</button>
             </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_FM">Non conformity FM</label>
-              <p>{{ form.nonconf_FM }}</p>
-            </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_FS">Non conformity FS</label>
-              <p>{{ form.nonconf_FS }}</p>
-            </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_IS">Non conformity IS</label>
-              <p>{{ form.nonconf_IS }}</p>
-            </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_P6">Non conformity P6</label>
-              <p>{{ form.nonconf_P6 }}</p>
-            </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_P2">Non conformity P2</label>
-              <p>{{ form.nonconf_P2 }}</p>
-            </div>
-            <div class="d-block mr-2 p-0">
-              <label for="id_nonconf_P5">Non conformity P5</label>
-              <p>{{ form.nonconf_P5 }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-1">
-      <div class="test2 text-danger text-center"><strong>Non Conformity Action</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_action">Action</label>
-            <p>{{ form.action }}</p>
-            {% for error in form.action.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_burner_sp_change">Burner SP change</label>
-            <p>{{ form.burner_sp_change }}</p>
-            {% for error in form.burner_sp_change.errors %}
-              <p style="color: red">{{ error }}</p>
-            {% endfor %}
-          </div>
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_call_to_operator">Call to operator</label>
-            <p>{{ form.call_to_operator }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column mt-1">
-      <div class="test2 text-warning text-center"><strong>Remarks</strong></div>
-      <div class="d-flex flex-wrap bg-light pb-0">
-        <div class="d-inline-flex flex-wrap">
-          <div class="d-block m-1 p-0 flex-shrink-0">
-            <label for="id_remarks" id="remarklable">Remarks</label>
-            <p>{{ form.remarks }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <br>
-
-    <div align="center">
-      <button type = "submit" class="btn-lg">Save</button>
-    </div>
-    <br>
-  </form>
+            <br>
+    </form>
 {% endblock %}

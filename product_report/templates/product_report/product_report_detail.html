@@ -10,11 +10,149 @@
         </div>
         <div class="d-flex flex-wrap">
             <div class="p-2 pr-5">author: <strong>{{ detail.author }}</strong></div>
-            <div class="p-2 pr-5">published date: <strong>{{ detail.Published_Date|date:"SHORT_DATE_FORMAT" }}</strong>
-            </div>
-            <div class="p-2 pr-5">published time: <strong>{{ lab.published_date|time:"H:i" }}</strong></div>
-            <div class="p-2 pr-5">hour: <strong>{{ lab.hour }}</strong></div>
+            <div class="p-2 pr-5">for date: <strong>{{ detail.For_Date|date:"SHORT_DATE_FORMAT" }}</strong></div>
         </div>
     </div>
+    <hr>
+    <div class="d-flex bg-light mt-2">
+        <div class="d-flex">
+            <div class="p-2 bg-secondary" style="width: 111px;"><strong>crasher
+                operation</strong></div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">machinery: <strong>{{ detail.Machinery }}</strong></div>
+            <div class="p-2 pr-5">crasher electronic consumption: <strong>{{ detail.Crasher_Elec_Consumption }}</strong>
+            </div>
+            <div class="p-2 pr-5">rockstone shortage: <strong>{{ detail.Rockstone_Shortage }}</strong></div>
+            <div class="p-2 pr-5">no needed: <strong>{{ detail.No_Needed }}</strong></div>
+            <div class="p-2 pr-5">electrical fault: <strong>{{ detail.Electrical_Fault }}</strong></div>
+            <div class="p-2 pr-5">mechanical fault: <strong>{{ detail.Mechanical_Fault }}</strong></div>
+            <div class="p-2 pr-5">operator fault: <strong>{{ detail.Operator_Fault }}</strong></div>
+            <div class="p-2 pr-5">total fault: <strong>{{ detail.Total_Fault }}</strong></div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex bg-light mt-2">
+        <div class="d-flex">
+            <div class="p-2 bg-danger" style="width: 111px;"><strong class="detail-title">raw material
+                consumption</strong></div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">knauf raw material consumption 1:
+                <strong>{{ detail.Kenaf_Rawmat_Consumption_1 }}</strong></div>
+            <div class="p-2 pr-5">knauf raw material consumption 2:
+                <strong>{{ detail.Kenaf_Rawmat_Consumption_2 }}</strong></div>
+            <div class="p-2 pr-5">knauf stucco production 1: <strong>{{ detail.Kenaf_Stucco_Prod_1 }}</strong></div>
+            <div class="p-2 pr-5">knauf stucco production 2: <strong>{{ detail.Kenaf_Stucco_Prod_2 }}</strong></div>
+            <div class="p-2 pr-5">ordinary raw material consumption 1:
+                <strong>{{ detail.Ordinary_RawMat_Consumption_1 }}</strong></div>
+            <div class="p-2 pr-5">ordinary raw material consumption 2:
+                <strong>{{ detail.Ordinary_RawMat_Consumption_2 }}</strong></div>
+            <div class="p-2 pr-5">ordinary stucco production 1: <strong>{{ detail.Ordinary_Stucco_Prod_1 }}</strong>
+            </div>
+            <div class="p-2 pr-5">ordinary stucco production 2: <strong>{{ detail.Ordinary_Stucco_Prod_2 }}</strong>
+            </div>
+            <div class="p-2 pr-5">block raw material consumption 1:
+                <strong>{{ detail.Block_RawMat_Consumption_1 }}</strong></div>
+            <div class="p-2 pr-5">block raw material consumption 2:
+                <strong>{{ detail.Block_RawMat_Consumption_2 }}</strong></div>
+            <div class="p-2 pr-5">block stucco production 1: <strong>{{ detail.Block_Stucco_Prod_1 }}</strong></div>
+            <div class="p-2 pr-5">block stucco production 2: <strong>{{ detail.Block_Stucco_Prod_2 }}</strong></div>
+            <div class="p-2 pr-5">nealit raw material consumption:
+                <strong>{{ detail.Nealit_RawMat_Consumption }}</strong></div>
+            <div class="p-2 pr-5">nealit sugar consumption: <strong>{{ detail.Nealit_Sugar_Consumption }}</strong></div>
+            <div class="p-2 pr-5">total consumption 1: <strong>{{ detail.Total_Consumption_1 }}</strong></div>
+            <div class="p-2 pr-5">total consumption 2: <strong>{{ detail.Total_Consumption_2 }}</strong></div>
+            <div class="p-2 pr-5">total production 1: <strong>{{ detail.Total_Prod_1 }}</strong></div>
+            <div class="p-2 pr-5">total production 2: <strong>{{ detail.Total_Prod_2 }}</strong></div>
 
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex mt-2 bg-light">
+        <div class="d-flex">
+            <div class="p-2 bg-danger" style="width: 111px;">
+                <strong class="detail-title" style=" display: flex;">stoppage cause</strong>
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">no needed 1: <strong>{{ detail.No_Needed_1 }}</strong></div>
+            <div class="p-2 pr-5">no needed 2: <strong>{{ detail.No_Needed_2 }}</strong></div>
+            <div class="p-2 pr-5">no needed nealit: <strong>{{ detail.No_Needed_Nealit }}</strong></div>
+            <div class="p-2 pr-5">electrical stoppage 1: <strong>{{ detail.Electrical_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">electrical stoppage 2: <strong>{{ detail.Electrical_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">electrical stoppage nealit: <strong>{{ detail.Electrical_Stoppage_Nealit }}</strong>
+            </div>
+            <div class="p-2 pr-5">blackout stoppage 1: <strong>{{ detail.Blackout_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">blackout stoppage 2: <strong>{{ detail.Blackout_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">blackout stoppage nealit: <strong>{{ detail.Blackout_Stoppage_Nealit }}</strong></div>
+            <div class="p-2 pr-5">mechanical stoppage 1: <strong>{{ detail.Mechanical_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">mechanical stoppage 2: <strong>{{ detail.Mechanical_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">mechanical stoppage nealit: <strong>{{ detail.Mechanical_Stoppage_Nealit }}</strong>
+            </div>
+            <div class="p-2 pr-5">gas cutout stoppage 1: <strong>{{ detail.Gas_Cutout_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">gas cutout stoppage 2: <strong>{{ detail.Gas_Cutout_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">gas cutout stoppage nealit: <strong>{{ detail.Gas_Cutout_Stoppage_Nealit }}</strong>
+            </div>
+            <div class="p-2 pr-5">gasoil cutout stoppage 1: <strong>{{ detail.Gasoil_Cutout_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">gasoil cutout stoppage 2: <strong>{{ detail.Gasoil_Cutout_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">gasoil cutout stoppage nealit:
+                <strong>{{ detail.Gasoil_Cutout_Stoppage_Nealit }}</strong></div>
+            <div class="p-2 pr-5">initial start stoppage 1: <strong>{{ detail.Initial_Start_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">initial start stoppage 2: <strong>{{ detail.Initial_Start_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">initial start stoppage nealit:
+                <strong>{{ detail.Initial_Start_Stoppage_Nealit }}</strong></div>
+            <div class="p-2 pr-5">end production stoppage 1: <strong>{{ detail.End_production_Stoppage_1 }}</strong>
+            </div>
+            <div class="p-2 pr-5">end production stoppage 2: <strong>{{ detail.End_production_Stoppage_2 }}</strong>
+            </div>
+            <div class="p-2 pr-5">end production stoppage nealit:
+                <strong>{{ detail.End_production_Stoppage_Nealit }}</strong></div>
+            <div class="p-2 pr-5">operator base stoppage 1: <strong>{{ detail.Operator_Base_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">operator base stoppage 2: <strong>{{ detail.Operator_Base_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">operator base stoppage nealit:
+                <strong>{{ detail.Operator_Base_Stoppage_Nealit }}</strong></div>
+            <div class="p-2 pr-5">total stoppage 1: <strong>{{ detail.Total_Stoppage_1 }}</strong></div>
+            <div class="p-2 pr-5">total stoppage 2: <strong>{{ detail.Total_Stoppage_2 }}</strong></div>
+            <div class="p-2 pr-5">total stoppage nealit: <strong>{{ detail.Total_Stoppage_Nealit }}</strong></div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex mt-2 bg-light">
+        <div class="d-flex">
+            <div class="p-2 bg-danger" style="width: 111px;">
+                <strong class="detail-title" style=" display: flex;">silo inventories</strong>
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">silo 1 inventory: <strong>{{ detail.Silo_1_Inventory }}</strong></div>
+            <div class="p-2 pr-5">silo 2 inventory: <strong>{{ detail.Silo_2_Inventory }}</strong></div>
+            <div class="p-2 pr-5">block silo n inventory: <strong>{{ detail.Block_Silo_N_Inventory }}</strong></div>
+            <div class="p-2 pr-5">block silo s inventory: <strong>{{ detail.Block_Silo_S_Inventory }}</strong></div>
+            <div class="p-2 pr-5">silo 800 inventory: <strong>{{ detail.Silo_800_Inventory }}</strong></div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex mt-2 bg-light">
+        <div class="d-flex">
+            <div class="p-2 bg-danger" style="width: 111px;">
+                <strong class="detail-title" style=" display: flex;">energy consumption</strong>
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">gas consumption am 1: <strong>{{ detail.Gas_Consumption_AM_1 }}</strong></div>
+            <div class="p-2 pr-5">gas consumption pm 1: <strong>{{ detail.Gas_Consumption_PM_1 }}</strong></div>
+            <div class="p-2 pr-5">gas consumption am 2: <strong>{{ detail.Gas_Consumption_AM_2 }}</strong></div>
+            <div class="p-2 pr-5">gas consumption pm 2: <strong>{{ detail.Gas_Consumption_PM_2 }}</strong></div>
+            <div class="p-2 pr-5">gasoil consumption am 1: <strong>{{ detail.Gasoil_Consumption_AM_1 }}</strong></div>
+            <div class="p-2 pr-5">gasoil consumption pm 1: <strong>{{ detail.Gasoil_Consumption_PM_1 }}</strong></div>
+            <div class="p-2 pr-5">gasoil consumption am 2: <strong>{{ detail.Gasoil_Consumption_AM_2 }}</strong></div>
+            <div class="p-2 pr-5">gasoil consumption pm 2: <strong>{{ detail.Gasoil_Consumption_PM_2 }}</strong></div>
+            <div class="p-2 pr-5">gas temperature 1: <strong>{{ detail.Gas_Temperature_1 }}</strong></div>
+            <div class="p-2 pr-5">gas temperature 2: <strong>{{ detail.Gas_Temperature_2 }}</strong></div>
+            <div class="p-2 pr-5">gas presure 1: <strong>{{ detail.Gas_Presure_1 }}</strong></div>
+            <div class="p-2 pr-5">gas presure 2: <strong>{{ detail.Gas_Presure_2 }}</strong></div>
+        </div>
+    </div>
+    <hr>
 {% endblock %}

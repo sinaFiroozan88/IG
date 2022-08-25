@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
@@ -49,7 +50,7 @@ def lab_new(request):
 def lab_remove(request, pk):
     lab = get_object_or_404(Lab, pk=pk)
     lab.delete()
-    return redirect(request, lab_list)
+    return redirect(reverse('lab_list'))
 
 
 # def lab_new(request):

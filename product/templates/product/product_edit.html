@@ -1,0 +1,283 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+{% block title %}
+    <title>product report</title>
+{% endblock %}
+
+{% block header_ref %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <div>
+            <div class="d-flex new-part">
+                <div class="d-flex flex-column mt-2 mr-3 new-part">
+                    <div>
+                        <div class="test2 text-info text-center"><strong>خط</strong></div>
+                        <div class="d-block m-1 p-0 flex-shrink-0">
+                            <label for="id_gas_consumption">خط</label>
+                            <p>{{ form.line }}</p>
+                            {% for error in form.line.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="test2 text-info text-center"><strong>کلی</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">ثبت کننده</label>
+                                    <p>{{ form.author }}</p>
+                                    {% for error in form.author.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">سال</label>
+                                    <p>{{ form.year }}</p>
+                                    {% for error in form.year.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_elec_consumption">ماه</label>
+                                    <p>{{ form.month }}</p>
+                                    {% for error in form.month.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gasoil_consumption">روز</label>
+                                    <p>{{ form.day }}</p>
+                                    {% for error in form.day.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_block_stucco">ساعت</label>
+                                    <p>{{ form.hour }}</p>
+                                    {% for error in form.hour.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="test2 text-info text-center"><strong>محصول</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">محصول هدف</label>
+                                    <p>{{ form.main_product }}</p>
+                                    {% for error in form.main_product.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">سنگ مصرفی</label>
+                                    <p>{{ form.quarry }}</p>
+                                    {% for error in form.quarry.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">تنتاژ ورودی کوره</label>
+                                    <p>{{ form.kiln_feed_tonnage }}</p>
+                                    {% for error in form.kiln_feed_tonnage.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">درجه رگولاتور شیر گاز</label>
+                                    <p>{{ form.gas_valve_sp }}</p>
+                                    {% for error in form.gas_valve_sp.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">دمای ورودی کوره</label>
+                                    <p>{{ form.kiln_inlet_temp }}</p>
+                                    {% for error in form.kiln_inlet_temp.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">دمای تنظیم شده</label>
+                                    <p>{{ form.setpoint_temp }}</p>
+                                    {% for error in form.setpoint_temp.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">دمای قرائت شده خروجی</label>
+                                    <p>{{ form.kiln_outlet_temp }}</p>
+                                    {% for error in form.kiln_outlet_temp.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">فرکانس فن فیلتر</label>
+                                    <p>{{ form.filter_fan_frequency }}</p>
+                                    {% for error in form.filter_fan_frequency.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">آمپر موتور کوره</label>
+                                    <p>{{ form.kiln_amper }}</p>
+                                    {% for error in form.kiln_amper.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مکش کوره</label>
+                                    <p>{{ form.kiln_negative_presure }}</p>
+                                    {% for error in form.kiln_negative_presure.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">دمای گچ</label>
+                                    <p>{{ form.stucco_temperature }}</p>
+                                    {% for error in form.stucco_temperature.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">فرکانس سپراتور</label>
+                                    <p>{{ form.saparator_frequency }}</p>
+                                    {% for error in form.saparator_frequency.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">فرکانس مولکولاتور شمالی</label>
+                                    <p>{{ form.moleculator_N_frequency }}</p>
+                                    {% for error in form.moleculator_N_frequency.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">فرکانس مولکولاتور جنوبی</label>
+                                    <p>{{ form.moleculator_S_frequency }}</p>
+                                    {% for error in form.moleculator_S_frequency.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">شماره کنتور گاز</label>
+                                    <p>{{ form.gas_counter_digit }}</p>
+                                    {% for error in form.gas_counter_digit.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مصرف انرژی (KW/h)</label>
+                                    <p>{{ form.energy_consumption }}</p>
+                                    {% for error in form.energy_consumption.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مدت زمان ورود به سیلو فلزی 800 تنی</label>
+                                    <p>{{ form.silo800_feed_time }}</p>
+                                    {% for error in form.silo800_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مدت زمان ورود به سیلو 1 کناف</label>
+                                    <p>{{ form.silo_knauf_1_feed_time }}</p>
+                                    {% for error in form.silo_knauf_1_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مدت زمان ورود به سیلو 2 کناف</label>
+                                    <p>{{ form.silo_knauf_2_feed_time }}</p>
+                                    {% for error in form.silo_knauf_2_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption"> مدت زمان ورود به سیلو بلوکسازی 1 </label>
+                                    <p>{{ form.silo_block_1_feed_time }}</p>
+                                    {% for error in form.silo_block_1_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مدت زمان ورود به سیلو
+                                        بلوکسازی 2
+                                    </label>
+                                    <p>{{ form.silo_block_2_feed_time }}</p>
+                                    {% for error in form.silo_block_2_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مدت زمان ورود به سیلو اضطراری 1 (فلزی)</label>
+                                    <p>{{ form.silo_emergency_1_feed_time }}</p>
+                                    {% for error in form.silo_emergency_1_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">مدت زمان ورود به سیلوی اضطراری 2 (بتنی)</label>
+                                    <p>{{ form.silo_emergency_2_feed_time }}</p>
+                                    {% for error in form.silo_emergency_2_feed_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">کارکرد بدون تولید</label>
+                                    <p>{{ form.work_without_output }}</p>
+                                    {% for error in form.work_without_output.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">توقف</label>
+                                    <p>{{ form.stoppage }}</p>
+                                    {% for error in form.stoppage.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">علت توقف</label>
+                                    <p>{{ form.stoppage_cause }}</p>
+                                    {% for error in form.stoppage_cause.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">علت انحراف از محصول هدف</label>
+                                    <p>{{ form.product_deviation_cause }}</p>
+                                    {% for error in form.product_deviation_cause.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">توضیحات</label>
+                                    <p>{{ form.description }}</p>
+                                    {% for error in form.description.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div align="center">
+            <button type="submit" class="btn-lg">Save</button>
+        </div>
+        <br>
+    </form>
+{% endblock %}

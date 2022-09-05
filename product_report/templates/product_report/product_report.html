@@ -25,7 +25,7 @@
                     <div class="d-block m-1 p-0 flex-shrink-0">
                         <label for="id_gas_consumption">ثبت کننده</label>
                         <p>{{ form.author }}</p>
-                        {% for error in form.For_Date.errors %}
+                        {% for error in form.author.errors %}
                             <p style="color: red">{{ error }}</p>
                         {% endfor %}
                     </div>

@@ -1,0 +1,140 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block header_ref %}
+    <link rel="stylesheet" href={% static 'css/productreport.css' %}>
+{% endblock %}
+
+{% block content %}
+    <button id="reset" class="my-2">Reset to original column order</button>
+    <br>
+    <table id="table1" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+            <th>row</th>
+            <th>link</th>
+            <th>line</th>
+            <th>published date</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+            <th>hour</th>
+            <th>author</th>
+            <th>main product</th>
+            <th>quarry</th>
+            <th>kiln feed tonnage</th>
+            <th>gas valve sp</th>
+            <th>kiln inlet temp</th>
+            <th>set point temp</th>
+            <th>kiln outlet temp</th>
+            <th>filter fan frequency</th>
+            <th>kiln amper</th>
+            <th>kiln negative presure</th>
+            <th>stucco temperature</th>
+            <th>saparator frequency</th>
+            <th>moleculator n frequency</th>
+            <th>moleculator s frequency</th>
+            <th>gas counter digit</th>
+            <th>energy consumption</th>
+            <th>silo 800 feed time</th>
+            <th>silo knauf 1 feed time</th>
+            <th>silo knauf 2 feed time</th>
+            <th>silo block 1 feed time</th>
+            <th>silo block 2 feed time</th>
+            <th>silo emergency 1 feed time</th>
+            <th>silo emergency 2 feed time</th>
+            <th>work without output</th>
+            <th>stoppage</th>
+            <th>stoppage cause</th>
+            <th>product deviation cause</th>
+            <th>description</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for list in lists %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><h6><a class="detail-link" href={% url 'product_detail' pk=list.pk %}>detail</a></h6></td>
+                <td>{{ list.line }}</td>
+                <td>{{ list.published_date | date:"SHORT_DATE_FORMAT" }}</td>
+                <td>{{ list.year }}</td>
+                <td>{{ list.month }}</td>
+                <td>{{ list.day }}</td>
+                <td>{{ list.hour }}</td>
+                <td>{{ list.author }}</td>
+                <td>{{ list.main_product }}</td>
+                <td>{{ list.quarry }}</td>
+                <td>{{ list.kiln_feed_tonnage }}</td>
+                <td>{{ list.gas_valve_sp }}</td>
+                <td>{{ list.kiln_inlet_temp }}</td>
+                <td>{{ list.setpoint_temp }}</td>
+                <td>{{ list.kiln_outlet_temp }}</td>
+                <td>{{ list.filter_fan_frequency }}</td>
+                <td>{{ list.kiln_amper }}</td>
+                <td>{{ list.kiln_negative_presure }}</td>
+                <td>{{ list.stucco_temperature }}</td>
+                <td>{{ list.saparator_frequency }}</td>
+                <td>{{ list.moleculator_N_frequency }}</td>
+                <td>{{ list.moleculator_S_frequency }}</td>
+                <td>{{ list.gas_counter_digit }}</td>
+                <td>{{ list.energy_consumption }}</td>
+                <td>{{ list.silo800_feed_time }}</td>
+                <td>{{ list.silo_knauf_1_feed_time }}</td>
+                <td>{{ list.silo_knauf_2_feed_time }}</td>
+                <td>{{ list.silo_block_1_feed_time }}</td>
+                <td>{{ list.silo_block_2_feed_time }}</td>
+                <td>{{ list.silo_emergency_1_feed_time }}</td>
+                <td>{{ list.silo_emergency_2_feed_time }}</td>
+                <td>{{ list.work_without_output }}</td>
+                <td>{{ list.stoppage }}</td>
+                <td>{{ list.stoppage_cause }}</td>
+                <td>{{ list.product_deviation_cause }}</td>
+                <td>{{ list.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>row</th>
+            <th>link</th>
+            <th>line</th>
+            <th>published date</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+            <th>hour</th>
+            <th>author</th>
+            <th>main product</th>
+            <th>quarry</th>
+            <th>kiln feed tonnage</th>
+            <th>gas valve sp</th>
+            <th>kiln inlet temp</th>
+            <th>set point temp</th>
+            <th>kiln outlet temp</th>
+            <th>filter fan frequency</th>
+            <th>kiln amper</th>
+            <th>kiln negative presure</th>
+            <th>stucco temperature</th>
+            <th>saparator frequency</th>
+            <th>moleculator n frequency</th>
+            <th>moleculator s frequency</th>
+            <th>gas counter digit</th>
+            <th>energy consumption</th>
+            <th>silo 800 feed time</th>
+            <th>silo knauf 1 feed time</th>
+            <th>silo knauf 2 feed time</th>
+            <th>silo block 1 feed time</th>
+            <th>silo block 2 feed time</th>
+            <th>silo emergency 1 feed time</th>
+            <th>silo emergency 2 feed time</th>
+            <th>work without output</th>
+            <th>stoppage</th>
+            <th>stoppage cause</th>
+            <th>product deviation cause</th>
+            <th>description</th>
+        </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

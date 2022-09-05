@@ -26,9 +26,9 @@ class ProductReport(View):
 
         if form.is_valid():
             form.save()
-            return redirect(reverse('home_page'))
+            return redirect(reverse('product_report_list'))
         else:
-            return redirect(reverse('home_page'))
+            return redirect(reverse('product_report'))
 
 
 @login_required

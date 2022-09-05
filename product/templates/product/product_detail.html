@@ -1,0 +1,66 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="d-flex bg-light mt-0">
+        <div class="d-flex">
+            <div class="p-2 bg-info" style="width: 111px;"><strong>info</strong></div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">line: <strong>{{ detail.line }}</strong></div>
+            <div class="p-2 pr-5">published date: <strong>{{ detail.published_date|date:"SHORT_DATE_FORMAT" }}</strong></div>
+            <div class="p-2 pr-5">year: <strong>{{ detail.year }}</strong></div>
+            <div class="p-2 pr-5">month: <strong>{{ detail.month }}</strong></div>
+            <div class="p-2 pr-5">day: <strong>{{ detail.day }}</strong></div>
+            <div class="p-2 pr-5">hour: <strong>{{ detail.hour }}</strong></div>
+            <div class="p-2 pr-5">author: <strong>{{ detail.author }}</strong></div>
+        </div>
+    </div>
+    <div class="d-flex bg-light mt-0 mb-0">
+        <div class="d-flex">
+            <div class="p-2 bg-secondary" style="width: 111px;"><strong>product</strong></div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">main product: <strong>{{ detail.main_product }}</strong></div>
+            <div class="p-2 pr-5">quarry: <strong>{{ detail.quarry }}</strong></div>
+            <div class="p-2 pr-5">kiln feed tonnage: <strong>{{ detail.kiln_feed_tonnage }}</strong></div>
+            <div class="p-2 pr-5">gas valve sp: <strong>{{ detail.gas_valve_sp }}</strong></div>
+            <div class="p-2 pr-5">kiln inlet temp: <strong>{{ detail.kiln_inlet_temp }}</strong></div>
+            <div class="p-2 pr-5">set point temp: <strong>{{ detail.setpoint_temp }}</strong></div>
+            <div class="p-2 pr-5">kiln outlet temp: <strong>{{ detail.kiln_outlet_temp }}</strong></div>
+            <div class="p-2 pr-5">filter fan frequency: <strong>{{ detail.filter_fan_frequency }}</strong></div>
+            <div class="p-2 pr-5">kiln amper: <strong>{{ detail.kiln_amper }}</strong></div>
+            <div class="p-2 pr-5">kiln negative presure: <strong>{{ detail.kiln_negative_presure }}</strong></div>
+            <div class="p-2 pr-5">stucco temperature: <strong>{{ detail.stucco_temperature }}</strong></div>
+            <div class="p-2 pr-5">saparator frequency: <strong>{{ detail.saparator_frequency }}</strong></div>
+            <div class="p-2 pr-5">moleculator N frequency: <strong>{{ detail.moleculator_N_frequency }}</strong></div>
+            <div class="p-2 pr-5">moleculator S frequency: <strong>{{ detail.moleculator_S_frequency }}</strong></div>
+            <div class="p-2 pr-5">gas counter digit: <strong>{{ detail.gas_counter_digit }}</strong></div>
+            <div class="p-2 pr-5">energy consumption: <strong>{{ detail.energy_consumption }}</strong></div>
+            <div class="p-2 pr-5">silo 800 feed time: <strong>{{ detail.silo800_feed_time }}</strong></div>
+            <div class="p-2 pr-5">silo knauf 1 feed time: <strong>{{ detail.silo_knauf_1_feed_time }}</strong></div>
+            <div class="p-2 pr-5">silo knauf 2 feed time: <strong>{{ detail.silo_knauf_2_feed_time }}</strong></div>
+            <div class="p-2 pr-5">silo block 1 feed time: <strong>{{ detail.silo_block_1_feed_time }}</strong></div>
+            <div class="p-2 pr-5">silo block 2 feed time: <strong>{{ detail.silo_block_2_feed_time }}</strong></div>
+            <div class="p-2 pr-5">silo emergency 1 feed time: <strong>{{ detail.silo_emergency_1_feed_time }}</strong></div>
+            <div class="p-2 pr-5">silo emergency 2 feed time: <strong>{{ detail.silo_emergency_2_feed_time }}</strong></div>
+            <div class="p-2 pr-5">work without output: <strong>{{ detail.work_without_output }}</strong></div>
+            <div class="p-2 pr-5">stoppage: <strong>{{ detail.stoppage }}</strong></div>
+            <div class="p-2 pr-5">stoppage cause: <strong>{{ detail.stoppage_cause }}</strong></div>
+            <div class="p-2 pr-5">product deviation cause: <strong>{{ detail.product_deviation_cause }}</strong></div>
+            <div class="p-2 pr-5">description: <strong>{{ detail.description }}</strong></div>
+        </div>
+    </div>
+
+    <div class="container-fluid d-block bg-light mx-auto">
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" style="margin-left: 20%; width: 20%; height: 10%"
+               href="{% url 'product_edit' pk=detail.pk %}">Edit</a>
+            <span><a class="btn btn-danger" style="margin-left: 20%; width: 20%; height: 10%"
+                     href="{% url 'product_remove' pk=detail.pk %}">ِDelete</a></span>
+
+        {% endif %}
+    </div>
+    <hr>
+{% endblock %}

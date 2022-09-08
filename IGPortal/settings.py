@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'site_setting',
     'django_render_partial',
     'product_report',
+    'quality_control_nealit',
 
 ]
 

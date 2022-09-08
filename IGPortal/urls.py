@@ -27,6 +27,7 @@ urlpatterns = [
     path('plc/', include('plc.urls')),
     path('pm/', include('pm.urls')),
     path('product/', include('product.urls')),
+    path('qc-nealit/', include('quality_control_nealit.urls')),
     path('', include('product_report.urls')),
     path('slider/', include('slider.urls')),
 ]

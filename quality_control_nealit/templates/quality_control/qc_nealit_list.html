@@ -1,0 +1,96 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block header_ref %}
+    <link rel="stylesheet" href={% static 'css/productreport.css' %}>
+{% endblock %}
+
+{% block content %}
+    <button id="reset" class="my-2">Reset to original column order</button>
+    <br>
+    <table id="table1" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+            <th>row</th>
+            <th>detail</th>
+            <th>author</th>
+            <th>published date</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+            <th>hour</th>
+            <th>inlet feed</th>
+            <th>bag number 2</th>
+            <th>bag number</th>
+            <th>free moisture filterdust</th>
+            <th>crystal water filterdust</th>
+            <th>purity filterdust</th>
+            <th>free moisture nealit</th>
+            <th>retained on 63</th>
+            <th>retained on 200</th>
+            <th>retained on 500</th>
+            <th>blaine Nealit</th>
+            <th>blaine filterdust</th>
+            <th>blaine after mill</th>
+            <th>remarks</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for list in lists %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><h6><a class="detail-link" href={% url 'quality_control_nealit_detail' pk=list.pk %}>detail</a></h6>
+                </td>
+                <td>{{ list.author }}</td>
+                <td>{{ list.published_date | date:"SHORT_DATE_FORMAT" }}</td>
+                <td>{{ list.year }}</td>
+                <td>{{ list.month }}</td>
+                <td>{{ list.day }}</td>
+                <td>{{ list.hour }}</td>
+                <td>{{ list.inlet_feed }}</td>
+                <td>{{ list.bag_number_2 }}</td>
+                <td>{{ list.bag_number }}</td>
+                <td>{{ list.free_moisture_filterdust }}</td>
+                <td>{{ list.crystal_water_filterdust }}</td>
+                <td>{{ list.purity_filterdust }}</td>
+                <td>{{ list.free_moisture_nealit }}</td>
+                <td>{{ list.retained_on_63 }}</td>
+                <td>{{ list.retained_on_200 }}</td>
+                <td>{{ list.retained_on_500 }}</td>
+                <td>{{ list.blaine_Nealit }}</td>
+                <td>{{ list.blaine_filterdust }}</td>
+                <td>{{ list.blaine_after_mill }}</td>
+                <td>{{ list.remarks }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>row</th>
+            <th>detail</th>
+            <th>author</th>
+            <th>published date</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+            <th>hour</th>
+            <th>inlet feed</th>
+            <th>bag number 2</th>
+            <th>bag number</th>
+            <th>free moisture filterdust</th>
+            <th>crystal water filterdust</th>
+            <th>purity filterdust</th>
+            <th>free moisture nealit</th>
+            <th>retained on 63</th>
+            <th>retained on 200</th>
+            <th>retained on 500</th>
+            <th>blaine Nealit</th>
+            <th>blaine filterdust</th>
+            <th>blaine after mill</th>
+            <th>remarks</th>
+        </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

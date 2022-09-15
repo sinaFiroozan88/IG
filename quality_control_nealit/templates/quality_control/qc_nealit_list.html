@@ -40,7 +40,7 @@
         {% for list in lists %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td><h6><a class="detail-link" href={% url 'quality_control_nealit_detail' pk=list.pk %}>detail</a></h6>
+                <td><h6><a class="detail-link" href={% url 'quality_control_retest_detail' pk=list.pk %}>detail</a></h6>
                 </td>
                 <td>{{ list.author }}</td>
                 <td>{{ list.published_date | date:"SHORT_DATE_FORMAT" }}</td>

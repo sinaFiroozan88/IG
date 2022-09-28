@@ -29,6 +29,7 @@ urlpatterns = [
     path('product/', include('product.urls')),
     path('qc-nealit/', include('quality_control_nealit.urls')),
     path('qc-retest/', include('qc_retest.urls')),
+    path('qc-block/', include('qc_block.urls')),
     path('', include('product_report.urls')),
     path('slider/', include('slider.urls')),
 ]

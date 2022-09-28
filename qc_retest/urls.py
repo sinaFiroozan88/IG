@@ -10,5 +10,5 @@ urlpatterns = [
     path('detail/<int:pk>', views.QC_Retest_Detail.as_view(), name='quality_control_retest_detail'),
     path('list', views.QC_Retest_List.as_view(), name='quality_control_retest_list'),
     path('edit/<int:pk>', views.QC_Retest_Edit.as_view(), name='quality_control_retest_edit'),
-    path('delete/<int:pk>', views.QC_Nealit_Delete.as_view(), name='quality_control_retest_delete'),
+    path('delete/<int:pk>', views.QC_Retest_Delete.as_view(), name='quality_control_retest_delete'),
 ]

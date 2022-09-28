@@ -1,0 +1,103 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block header_ref %}
+    <link rel="stylesheet" href={% static 'css/productreport.css' %}>
+{% endblock %}
+
+{% block content %}
+
+    <button id="reset" class="my-2">Reset to original column order</button>
+    <br>
+    <table id="table1" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+            <th>row</th>
+            <th>detail</th>
+            <th>author</th>
+            <th>published date</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+            <th>type block</th>
+            <th>date production</th>
+            <th>date sampling</th>
+            <th>thickness</th>
+            <th>length</th>
+            <th>height</th>
+            <th>flatness</th>
+            <th>mass</th>
+            <th>surface_mass</th>
+            <th>density</th>
+            <th>water absorption</th>
+            <th>ph</th>
+            <th>bending strength</th>
+            <th>humidity</th>
+            <th>non conformity</th>
+            <th>action</th>
+            <th>remarks</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for list in lists %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><h6><a class="detail-link" href={% url 'qc_block_detail' pk=list.pk %}>detail</a></h6>
+                </td>
+                <td>{{ list.author }}</td>
+                <td>{{ list.published_date | date:"SHORT_DATE_FORMAT" }}</td>
+                <td>{{ list.year }}</td>
+                <td>{{ list.month }}</td>
+                <td>{{ list.day }}</td>
+                <td>{{ list.type_block }}</td>
+                <td>{{ list.date_production }}</td>
+                <td>{{ list.date_sampling }}</td>
+                <td>{{ list.thickness }}</td>
+                <td>{{ list.length }}</td>
+                <td>{{ list.height }}</td>
+                <td>{{ list.flatness }}</td>
+                <td>{{ list.mass }}</td>
+                <td>{{ list.surface_mass }}</td>
+                <td>{{ list.density }}</td>
+                <td>{{ list.water_absorption }}</td>
+                <td>{{ list.ph }}</td>
+                <td>{{ list.bending_strength }}</td>
+                <td>{{ list.humidity }}</td>
+                <td>{{ list.non_conformity }}</td>
+                <td>{{ list.action }}</td>
+                <td>{{ list.remarks }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>row</th>
+            <th>detail</th>
+            <th>author</th>
+            <th>published date</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+            <th>type block</th>
+            <th>date production</th>
+            <th>date sampling</th>
+            <th>thickness</th>
+            <th>length</th>
+            <th>height</th>
+            <th>flatness</th>
+            <th>mass</th>
+            <th>surface_mass</th>
+            <th>density</th>
+            <th>water absorption</th>
+            <th>ph</th>
+            <th>bending strength</th>
+            <th>humidity</th>
+            <th>non conformity</th>
+            <th>action</th>
+            <th>remarks</th>
+        </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

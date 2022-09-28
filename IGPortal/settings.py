@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'product_report',
     'quality_control_nealit',
     'qc_retest',
+    'qc_block',
 
 ]
 

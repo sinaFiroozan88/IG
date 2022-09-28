@@ -1,0 +1,61 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>qc retest</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="d-flex bg-light mt-2">
+        <div class="d-flex">
+            <div class="p-2 bg-info" style="width: 111px;"><strong>info</strong></div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">ثبت کننده<strong>{{ detail.author }}</strong></div>
+            <div class="p-2 pr-5">تاریخ ثبت<strong>{{ detail.published_date|date:"SHORT_DATE_FORMAT" }}</strong>
+            </div>
+            <div class="p-2 pr-5">سال<strong>{{ detail.year }}</strong></div>
+            <div class="p-2 pr-5">ماه<strong>{{ detail.month }}</strong></div>
+            <div class="p-2 pr-5">روز<strong>{{ detail.day }}</strong></div>
+            <div class="p-2 pr-5">نوع بلوک<strong>{{ detail.type_block }}</strong></div>
+            <div class="p-2 pr-5">تاریخ تولید<strong>{{ detail.date_production }}</strong></div>
+            <div class="p-2 pr-5">تاریخ بسته بندی<strong>{{ detail.date_sampling }}</strong></div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex bg-light mt-2">
+        <div class="d-flex">
+            <div class="p-2 bg-secondary" style="width: 111px;"><strong>qc block</strong></div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="p-2 pr-5">ضخامت<strong>{{ detail.thickness }}</strong></div>
+            <div class="p-2 pr-5">طول<strong>{{ detail.length }}</strong></div>
+            <div class="p-2 pr-5">ارتفاع<strong>{{ detail.height }}</strong></div>
+            <div class="p-2 pr-5">تخت بودن<strong>{{ detail.flatness }}</strong></div>
+            <div class="p-2 pr-5">جرم<strong>{{ detail.mass }}</strong></div>
+            <div class="p-2 pr-5">جرم سطحی<strong>{{ detail.surface_mass }}</strong></div>
+            <div class="p-2 pr-5">دانسیته<strong>{{ detail.density }}</strong></div>
+            <div class="p-2 pr-5">جذب آب<strong>{{ detail.water_absorption }}</strong></div>
+            <div class="p-2 pr-5">اسیدینه<strong>{{ detail.ph }}</strong></div>
+            <div class="p-2 pr-5">تاب خمشی<strong>{{ detail.bending_strength }}</strong></div>
+            <div class="p-2 pr-5">درصد رطوبت<strong>{{ detail.humidity }}</strong></div>
+            <div class="p-2 pr-5">موارد منطبق<strong>{{ detail.non_conformity }}</strong></div>
+            <div class="p-2 pr-5">تعیین تکلیف<strong>{{ detail.action }}</strong></div>
+            <div class="p-2 pr-5">توضیحات<strong>{{ detail.remarks }}</strong></div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid d-block bg-light mx-auto">
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" style="margin-left: 20%; width: 20%; height: 10%"
+               href="{% url 'qc_block_edit' pk=detail.pk %}">Edit</a>
+            <span><a class="btn btn-danger" style="margin-left: 20%; width: 20%; height: 10%"
+                     href="{% url 'qc_block_delete' pk=detail.pk %}">ِDelete</a></span>
+
+        {% endif %}
+    </div>
+    <hr>
+{% endblock %}

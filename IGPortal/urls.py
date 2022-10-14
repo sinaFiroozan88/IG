@@ -32,6 +32,7 @@ urlpatterns = [
     path('qc-block/', include('qc_block.urls')),
     path('', include('product_report.urls')),
     path('slider/', include('slider.urls')),
+    path('qc-block-stucco/', include('qc_block_stucco.urls')),
 ]
 
 if settings.DEBUG:

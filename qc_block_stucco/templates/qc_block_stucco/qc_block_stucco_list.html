@@ -1,0 +1,80 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+
+{% block header_ref %}
+    <link rel="stylesheet" href={% static 'css/productreport.css' %}>
+{% endblock %}
+
+{% block content %}
+
+    <button id="reset" class="my-2">Reset to original column order</button>
+    <br>
+    <table id="table1" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+            <th>row</th>
+            <th>detail</th>
+            <th>author</th>
+            <th>published date</th>
+            <th>month</th>
+            <th>day</th>
+            <th>hour</th>
+            <th>crystal water stucco</th>
+            <th>einstrumenge</th>
+            <th>water gypsum ratio</th>
+            <th>initial setting time</th>
+            <th>final setting time</th>
+            <th>retained 200</th>
+            <th>retained 500</th>
+            <th>non conformity</th>
+            <th>action</th>
+            <th>remarks</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for list in lists %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><h6><a class="detail-link" href={% url 'qc_block_stucco_detail' pk=list.pk %}>detail</a></h6></td>
+                <td>{{ list.author }}</td>
+                <td>{{ list.published_date | date:"SHORT_DATE_FORMAT" }}</td>
+                <td>{{ list.month }}</td>
+                <td>{{ list.day }}</td>
+                <td>{{ list.hour }}</td>
+                <td>{{ list.crystal_water_stucco }}</td>
+                <td>{{ list.einstrumenge }}</td>
+                <td>{{ list.water_gypsum_ratio }}</td>
+                <td>{{ list.initial_setting_time }}</td>
+                <td>{{ list.final_setting_time }}</td>
+                <td>{{ list.retained_200 }}</td>
+                <td>{{ list.retained_500 }}</td>
+                <td>{{ list.non_conformity }}</td>
+                <td>{{ list.action }}</td>
+                <td>{{ list.remarks }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>row</th>
+            <th>detail</th>
+            <th>author</th>
+            <th>published date</th>
+            <th>month</th>
+            <th>day</th>
+            <th>hour</th>
+            <th>crystal water stucco</th>
+            <th>einstrumenge</th>
+            <th>water gypsum ratio</th>
+            <th>initial setting time</th>
+            <th>final setting time</th>
+            <th>retained 200</th>
+            <th>retained 500</th>
+            <th>non conformity</th>
+            <th>action</th>
+            <th>remarks</th>
+        </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

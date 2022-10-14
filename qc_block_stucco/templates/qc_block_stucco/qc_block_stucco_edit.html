@@ -1,0 +1,138 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+{% block title %}
+    <title>quality control retest</title>
+{% endblock %}
+
+{% block header_ref %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <div>
+            <div class="d-flex new-part">
+                <div class="d-flex flex-column mt-2 mr-3 new-part">
+                    <div>
+                        <div class="test2 text-info text-center"><strong>کلی</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">ثبت کننده</label>
+                                    <p>{{ form.author }}</p>
+                                    {% for error in form.author.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_elec_consumption">ماه</label>
+                                    <p>{{ form.month }}</p>
+                                    {% for error in form.month.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gasoil_consumption">روز</label>
+                                    <p>{{ form.day }}</p>
+                                    {% for error in form.day.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gasoil_consumption">ساعت</label>
+                                    <p>{{ form.hour }}</p>
+                                    {% for error in form.hour.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test2 text-info text-center"><strong>qc block stucco</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">درصد آب کریستال مواد خام</label>
+                                    <p>{{ form.crystal_water_stucco }}</p>
+                                    {% for error in form.crystal_water_stucco.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">وزن ملات</label>
+                                    <p>{{ form.einstrumenge }}</p>
+                                    {% for error in form.einstrumenge.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">نسبت آب به گچ</label>
+                                    <p>{{ form.water_gypsum_ratio }}</p>
+                                    {% for error in form.water_gypsum_ratio.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">گیرش اولیه</label>
+                                    <p>{{ form.initial_setting_time }}</p>
+                                    {% for error in form.initial_setting_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">گیرش ثانویه</label>
+                                    <p>{{ form.final_setting_time }}</p>
+                                    {% for error in form.final_setting_time.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">Retained on 200 µm %</label>
+                                    <p>{{ form.retained_200 }}</p>
+                                    {% for error in form.retained_200.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">Retained on 500 µm %</label>
+                                    <p>{{ form.retained_500 }}</p>
+                                    {% for error in form.retained_500.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">موارد نامنطبق</label>
+                                    <p>{{ form.non_conformity }}</p>
+                                    {% for error in form.non_conformity.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">تعیین تکلیف</label>
+                                    <p>{{ form.action }}</p>
+                                    {% for error in form.action.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">توضیحات</label>
+                                    <p>{{ form.remarks }}</p>
+                                    {% for error in form.remarks.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div align="center">
+            <button type="submit" class="btn-lg">Save</button>
+        </div>
+        <br>
+    </form>
+{% endblock %}

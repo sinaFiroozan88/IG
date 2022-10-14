@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'quality_control_nealit',
     'qc_retest',
     'qc_block',
-    'qc_block_stucco'
+    'qc_block_stucco',
+    'ten_sieve_analysis',
 
 ]
 

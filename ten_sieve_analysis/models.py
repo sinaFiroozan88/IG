@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Ten_Sieve_Analysis(models.Model):
+class Ten_Sieve_Analysis_Model(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.DO_NOTHING, blank=True, null=True)
     published_date = models.DateField(auto_now=True)
     year = models.IntegerField(max_length=5)

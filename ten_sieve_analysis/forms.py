@@ -1,11 +1,11 @@
 from django import forms
 from django.forms import widgets
-from .models import Ten_Sieve_Analysis
+from .models import Ten_Sieve_Analysis_Model
 
 
-class QC_Block_Stucco_Form(forms.ModelForm):
+class Ten_Sieve_Analyse_Form(forms.ModelForm):
     class Meta:
-        model = Ten_Sieve_Analysis
+        model = Ten_Sieve_Analysis_Model
         fields = {
             'author', 'year', 'month', 'day', 'sieve_40', 'sieve_63', 'sieve_90', 'sieve_100', 'sieve_200', 'sieve_300', 'sieve_400', 'sieve_500',
             'sieve_600', 'sieve_1000'

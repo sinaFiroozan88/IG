@@ -33,6 +33,7 @@ urlpatterns = [
     path('', include('product_report.urls')),
     path('slider/', include('slider.urls')),
     path('qc-block-stucco/', include('qc_block_stucco.urls')),
+    path('ten-sieve-analyse/', include('ten_sieve_analysis.urls')),
 ]
 
 if settings.DEBUG:

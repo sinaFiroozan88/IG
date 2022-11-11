@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'qc_block',
     'qc_block_stucco',
     'ten_sieve_analysis',
+    'blane',
 
 ]
 

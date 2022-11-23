@@ -1,0 +1,74 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+{% block title %}
+    <title>quality control nealit</title>
+{% endblock %}
+
+{% block header_ref %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <div>
+            <div class="d-flex new-part">
+                <div class="d-flex flex-column mt-2 mr-3 new-part">
+                    <div>
+                        <div class="test2 text-info text-center"><strong>کلی</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">ثبت کننده</label>
+                                    <p>{{ form.author }}</p>
+                                    {% for error in form.author.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">سال</label>
+                                    <p>{{ form.year }}</p>
+                                    {% for error in form.year.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">ماه</label>
+                                    <p>{{ form.month }}</p>
+                                    {% for error in form.month.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">روز</label>
+                                    <p>{{ form.day }}</p>
+                                    {% for error in form.day.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test2 text-info text-center"><strong>blane</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">اسیدینه</label>
+                                    <p>{{ form.ph }}</p>
+                                    {% for error in form.ph.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div align="center">
+            <button type="submit" class="btn-lg">Save</button>
+        </div>
+        <br>
+    </form>
+{% endblock %}

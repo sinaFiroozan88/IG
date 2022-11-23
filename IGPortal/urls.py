@@ -35,6 +35,7 @@ urlpatterns = [
     path('qc-block-stucco/', include('qc_block_stucco.urls')),
     path('blane/', include('blane.urls')),
     path('silis/', include('silis.urls')),
+    path('block-water-acid/', include('block_water_acid.urls')),
     path('ten-sieve-analyse/', include('ten_sieve_analysis.urls')),
 ]
 

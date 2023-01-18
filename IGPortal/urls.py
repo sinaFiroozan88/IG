@@ -36,7 +36,9 @@ urlpatterns = [
     path('blane/', include('blane.urls')),
     path('silis/', include('silis.urls')),
     path('block-water-acid/', include('block_water_acid.urls')),
+    path('ultrax-calibration/', include('ultrax_calibration.urls')),
     path('ten-sieve-analyse/', include('ten_sieve_analysis.urls')),
+    path('avg-test-production/', include('avg_test_production.urls')),
 ]
 
 if settings.DEBUG:

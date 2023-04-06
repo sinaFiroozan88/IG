@@ -10,10 +10,10 @@ class Hour(models.Model):
     hour = models.TimeField(verbose_name='ساعت آزمایش', choices=HOUR_CHOICES)
     active = models.BooleanField(verbose_name='فعال', default=True)
 
-    # def __str__(self):
-    #     hour = self.hour
-    #     return hour.strftime('%H')
-    # return hour.strftime('%H')+
+    def __str__(self):
+        hour = self.hour
+        return hour.strftime('%H')
+        # return hour.strftime('%H')+
 
 
 class Quarter(models.Model):

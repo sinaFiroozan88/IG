@@ -5,28 +5,29 @@ import os
 import random
 from django.utils import timezone
 
-
-def get_filename_ext(filepath):
-    base_name = os.path.basename(filepath)
-    name, ext = os.path.splitext(base_name)
-    return name, ext
-
-
-def upload_image_path(instance, filename):
-    name, ext = get_filename_ext(filename)
-    final_name = f"{instance.id}-{instance.title}{ext}"
-    return f"blog/{final_name}"
+#
+# def get_filename_ext(filepath):
+#     base_name = os.path.basename(filepath)
+#     name, ext = os.path.splitext(base_name)
+#     return name, ext
+#
+#
+# def upload_image_path(instance, filename):
+#     name, ext = get_filename_ext(filename)
+#     final_name = f"{instance.id}-{instance.title}{ext}"
+#     return f"blog/{final_name}"
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
-    image = models.ImageField(upload_to=upload_image_path, null=True, blank=True, )
-    author = models.ForeignKey( "auth.User", on_delete=models.CASCADE, related_name='post_author', blank=True, null=True, verbose_name='کاربر' )
+    image = models.ImageField(upload_to='blog/')
+    author = models.ForeignKey("auth.User", on_delete=models.CASCADE, related_name='post_author', blank=True, null=True,
+                               verbose_name='کاربر')
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now_add=True)
-    created_date = models.DateTimeField(default=timezone.now )
-    published_date = models.DateTimeField(blank=True, null=True )
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
     pdf = models.FileField(default='Answer.pdf', null=True, blank=True)
 
     def approved_comments(self):
@@ -43,14 +44,13 @@ class Post(models.Model):
         return self.title
 
 
-
 class Comment(models.Model):
-    post = models.ForeignKey( 'Post', on_delete=models.CASCADE, related_name='comments' )
-    author = models.ForeignKey( "auth.User", on_delete=models.CASCADE, blank=True, null=True,
-                                related_name='Comment_author', verbose_name='کاربر' )
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey("auth.User", on_delete=models.CASCADE, blank=True, null=True,
+                               related_name='Comment_author', verbose_name='کاربر')
     text = models.TextField()
-    created_date = models.DateTimeField( default=timezone.now )
-    approved_comment = models.BooleanField( default=False )
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
 
     def approve(self):
         self.approved_comment = True
@@ -58,11 +58,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
-
-
-
-
-
 
     # class ProductsManager(models.Manager):
     #     def search(self, query):
@@ -72,8 +67,6 @@ class Comment(models.Model):
     #                 Q(tag__title__icontains=query)
     #         )
     #         return self.get_queryset().filter(lookup, active=True).distinct()
-
-
 
     # def get_absolute_url(self):
     #     return f"/products/{self.id}/{self.title.replace(' ', '-')}"
@@ -95,4 +88,3 @@ class Comment(models.Model):
 #
 #     def __str__(self):
 #         return self.subject
-

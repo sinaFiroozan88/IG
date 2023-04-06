@@ -1,11 +1,11 @@
-# from .views import ProductReport, ProductReportList, ProductReportDetail, ProductReportEdit, ProductReportDelete
+from .views import Avg_Test_Production_New, Avg_Test_Production_Detail, Avg_Test_Production_List, Avg_Test_Production_Delete, Avg_Test_Production_Edit
 from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 
 urlpatterns = [
-    # path('product_report', ProductReport.as_view(), name='product_report'),
-    # path('product_report_list', ProductReportList, name='product_report_list'),
-    # path('product_report_detail/<int:pk>', ProductReportDetail, name='product_report_detail'),
-    # path('product_report/<int:pk>/edit', ProductReportEdit, name='product_report_edit'),
-    # path('product_report/<int:pk>/remove', ProductReportDelete, name='product_report_delete'),
+    path('new', Avg_Test_Production_New.as_view(), name='avg_test_product ion_new'),
+    path('detail/<int:pk>', Avg_Test_Production_Detail.as_view(), name='avg_test_production_detail'),
+    path('list', Avg_Test_Production_List.as_view(), name='avg_test_production_list'),
+    path('edit/<int:pk>', Avg_Test_Production_Edit.as_view(), name='avg_test_production_edit'),
+    path('delete/<int:pk>', Avg_Test_Production_Delete.as_view(), name='avg_test_production_delete'),
 ]

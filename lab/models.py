@@ -1,3 +1,4 @@
+
 from django.contrib import auth
 from general.models import Hour, Quarry, Silo, Line, Action, Quarter
 from django.db import models

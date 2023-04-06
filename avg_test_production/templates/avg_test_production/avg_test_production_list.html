@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block header_ref %}
-    <link rel="stylesheet" href={% static 'css/productreport.css' %}>
+{#    <link rel="stylesheet" href={% static 'css/productreport.css' %}>#}
+    <title>avg test production list</title>
 {% endblock %}
 
 {% block content %}
 
-    <button id="reset" class="my-2">Reset to original column order</button>
+    {#    <button id="reset" class="my-2">Reset to original column order</button>#}
     <br>
     <table id="table1" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -19,14 +20,13 @@
             <th>year</th>
             <th>month</th>
             <th>day</th>
-            <th>hour</th>
             <th>line</th>
-            <th>mine</th>
             <th>product silo</th>
+            <th>usage</th>
             <th>free moisture</th>
-            <th>crystal water raw mat</th>
-            <th>crystal water stucco</th>
-            <th>purity raw mat</th>
+            <th>crystal water raw material</th>
+            <th>purity of raw material</th>
+            <th>crystal water of stucco</th>
             <th>einstrumenge</th>
             <th>Water gypsum ratio</th>
             <th>initial setting time</th>
@@ -34,8 +34,6 @@
             <th>retained on 63 µm</th>
             <th>retained on 200 µm</th>
             <th>retained on 500 µm</th>
-            <th>non conformity</th>
-            <th>actions</th>
             <th>remarks</th>
         </tr>
         </thead>
@@ -43,30 +41,27 @@
         {% for list in lists %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td><h6><a class="detail-link" href={% url 'quality_control_retest_detail' pk=list.pk %}>detail</a></h6>
+                <td><h6><a class="detail-link" href={% url 'avg_test_production_detail' pk=list.pk %}>detail</a></h6>
                 </td>
                 <td>{{ list.author }}</td>
                 <td>{{ list.published_date | date:"SHORT_DATE_FORMAT" }}</td>
                 <td>{{ list.year }}</td>
                 <td>{{ list.month }}</td>
                 <td>{{ list.day }}</td>
-                <td>{{ list.hour }}</td>
                 <td>{{ list.line }}</td>
-                <td>{{ list.mine }}</td>
                 <td>{{ list.product_silo }}</td>
+                <td>{{ list.usage }}</td>
                 <td>{{ list.free_moisture }}</td>
                 <td>{{ list.crystal_water_raw_mat }}</td>
-                <td>{{ list.crystal_water_stucco }}</td>
-                <td>{{ list.Purity_raw_mat }}</td>
-                <td>{{ list.Einstrumenge }}</td>
-                <td>{{ list.Water_gypsum_ratio }}</td>
+                <td>{{ list.purity_of_raw_material }}</td>
+                <td>{{ list.crystal_water_of_stucco }}</td>
+                <td>{{ list.einstrumenge }}</td>
+                <td>{{ list.water_gypsum_ratio }}</td>
                 <td>{{ list.initial_setting_time }}</td>
                 <td>{{ list.final_setting_time }}</td>
                 <td>{{ list.retained_on_63 }}</td>
                 <td>{{ list.retained_on_200 }}</td>
                 <td>{{ list.retained_on_500 }}</td>
-                <td>{{ list.non_conformity }}</td>
-                <td>{{ list.actions }}</td>
                 <td>{{ list.remarks }}</td>
             </tr>
         {% endfor %}
@@ -80,14 +75,13 @@
             <th>year</th>
             <th>month</th>
             <th>day</th>
-            <th>hour</th>
             <th>line</th>
-            <th>mine</th>
             <th>product silo</th>
+            <th>usage</th>
             <th>free moisture</th>
-            <th>crystal water raw mat</th>
-            <th>crystal water stucco</th>
-            <th>purity raw mat</th>
+            <th>crystal water raw material</th>
+            <th>purity of raw material</th>
+            <th>crystal water of stucco</th>
             <th>einstrumenge</th>
             <th>Water gypsum ratio</th>
             <th>initial setting time</th>
@@ -95,8 +89,6 @@
             <th>retained on 63 µm</th>
             <th>retained on 200 µm</th>
             <th>retained on 500 µm</th>
-            <th>non conformity</th>
-            <th>actions</th>
             <th>remarks</th>
         </tr>
         </tfoot>

@@ -2,117 +2,114 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
 </head>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href={% url 'home_page' %}><img src="{% static 'img/K-LOGO1.png' %}" alt="logo" style="width:40px;"></a>
-	  	<a class="navbar-brand" href={% url 'home_page' %}>Iran Gatch</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href={% url 'home_page' %}><img src="{% static 'img/K-LOGO1.png' %}" alt="logo"
+                                                            style="width:40px;"></a>
+    <a class="navbar-brand" href={% url 'home_page' %}>Iran Gatch</a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href={% url 'home_page' %}>Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Dashboard</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Lab
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/lab">Lab list</a>
-          <a class="dropdown-item" href="#">Lab detail</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/lab/new/">Lab new/edit</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Production
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Production list</a>
-          <a class="dropdown-item" href="#">Production detail</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Production new/edit</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Nealit
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Nealit list</a>
-          <a class="dropdown-item" href="#">Nealit detail</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Nealit new/edit</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ISO
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Feeder Kiln1 Calibration</a>
-          <a class="dropdown-item" href="#">Feeder Kiln2 Calibration</a>
-          <a class="dropdown-item" href="#">Weigher Crusher Calibration</a>
-          <a class="dropdown-item" href="#">Static Scale Nealit Calibration</a>
-        <div class="dropdown-divider"></div>
-          <p class="dropdown-header">Instructions & Forms</p>
-          <a class="dropdown-item" href="#">Calcination Operating Instruction</a>
-          <a class="dropdown-item" href="#">PLC Data Limits</a>
-          <a class="dropdown-item" href="#">PLC Operating Instruction</a>
-        </div>
-      </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href={% url 'home_page' %}>Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href={% url 'post_list' %}>Blog <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Lab
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'lab_list' %}>Lab list</a>
+                    <a class="dropdown-item" href={% url 'lab_new' %}>Lab new</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Production
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'product_report_list' %}>Production list</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href={% url 'product_report' %}>Production new</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Nealit
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'quality_control_nealit_list' %}>Nealit list</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href={% url 'quality_control_nealit_new' %}>Nealit new</a>
+                </div>
+            </li>
 
-         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Block
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Block-7 daily Pruduction</a>
-          <a class="dropdown-item" href="#">Block-8 daily Pruduction</a>
-          <a class="dropdown-item" href="#">Outdoor Drying Data</a>
-          <a class="dropdown-item" href="#">Dispatching</a>
-           <div class="dropdown-divider"></div>
-          <p class="dropdown-header">Calibration</p>
-           <a class="dropdown-item" href="#">Water Scale Calibration</a>
-          <a class="dropdown-item" href="#">Gypsum Scale-7 Calibration</a>
-          <a class="dropdown-item" href="#">Gypsum Scale-8 Calibration</a>
-          <a class="dropdown-item" href="#">100Kg Scale Calibration</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Meteorology</a>
-         </div>
-      </li>
-      <li class="nav--item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Canteen
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbardropdown">
-          <a class="dropdown-item" href="/canteen">Daily Meal list</a>
-          <a class="dropdown-item" href="#">Daily Meal new</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Ingredient 1 person list</a>
-          <a class="dropdown-item" href="#">Ingredient 1 person new</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Food list</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Ultra x calibrations
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'ultrax_calibration_list' %}>ultra x calibration list</a>
+                    <a class="dropdown-item" href={% url 'ultrax_calibration_new' %}>ultra x calibration new</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    blane
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'blane_list' %}>Blane list</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href={% url 'blane_new' %}>Blane new</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    quality control block
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'qc_block_list' %}>quality control block list</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href={% url 'qc_block_new' %}>quality control block new</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    quality control retest
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={% url 'quality_control_retest_list' %}>quality control retest list</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href={% url 'quality_control_retest_new' %}>quality control retest new</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
 </nav>
 
 {#    <div class="shadow-sm mx-auto" style="width: 100%; height: 30px; background: lightgray;padding:2px 0 0 71px;">#}
@@ -123,42 +120,38 @@
 {#    </div>#}
 
 <div class="d-flex flex-wrap bg-secondary justify-content-between text-white">
-  <a class="p-1 pl-4 flex-fill text-white" href="/"><strong>Lab Data Entry</strong></a>
-  {#      <p>It is {% now "jS F Y H:i" %}</p>#}
-  {#      <div class="p-1 pr-4 text-white">#}
-  {% if user.is_authenticated %}
-{#    <a href="{% url 'lab_new' %}" class="px-4 py-1"><span>Lab New</span></a>#}
-{#    <a href="{% url 'lab_list' %}" class="pr-5 py-1"><span>Lab list</span></a>#}
+    <a class="p-1 pl-4 flex-fill text-white" href="/"><strong>Lab Data Entry</strong></a>
+    {#      <p>It is {% now "jS F Y H:i" %}</p>#}
+    {#      <div class="p-1 pr-4 text-white">#}
+    {% if user.is_authenticated %}
+        {#    <a href="{% url 'lab_new' %}" class="px-4 py-1"><span>Lab New</span></a>#}
+        {#    <a href="{% url 'lab_list' %}" class="pr-5 py-1"><span>Lab list</span></a>#}
 
-    <span class="p-1">
-          Hello, <strong>{{ user.username }}</strong>
-      {% if user.is_superuser %}[Superuser] |  <a href=""></a>{% elif user.staff %}[Staff] | ,
-      {% endif %}
+        <span class="p-1">
+        Hello, <strong>{{ user.username }}</strong>
+        {% if user.is_superuser %}[Superuser] |  <a href=""></a>{% elif user.staff %}[Staff] | ,
+        {% endif %}
 
-{#      <span class="pl-1">|</span>#}
-{#        </span>#}
+        {#      <span class="pl-1">|</span>#}
+        {#        </span>#}
 
-{#    <span class="p-1 pr-md-4 ml-auto">#}
-    <a class="header-logout" href="{% url 'logout' %}">Log out</a>
-  {% else %}
-    <a class="header-login" href="{% url 'login' %}">Login</a>
-      <p> / </p><a class="header-login" href="{% url 'register' %}">register</a>
+        {#    <span class="p-1 pr-md-4 ml-auto">#}
+        <a class="header-logout" href="{% url 'logout' %}">Log out</a>
+    {% else %}
+        <a class="header-login" href="{% url 'login' %}">Login</a>
+        <p> / </p><a class="header-login" href="{% url 'register' %}">register</a>
 
-    {#          <span class="px-1">Last Login:</span>#}
-    {#          <span class="text-right" dir="rtl">{{ user.last_login }}</span>#}
-  {% endif %}
-  </span>
+        {#          <span class="px-1">Last Login:</span>#}
+        {#          <span class="text-right" dir="rtl">{{ user.last_login }}</span>#}
+    {% endif %}
+    </span>
 </div>
-
-
 
 
 {#    <nav class="navbar navbar-expand-lg navbar-light bg-light">#}
 {#      <a class="navbar-brand" href="#"></a>#}
 {#	  	<h5><a class="navbar-brand"  style="color: black;" href="/">Lab Data Entry</a></h5>#}
 {#    </nav>#}
-
-
 
 
 {#    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">#}
@@ -190,7 +183,6 @@
 {#<div class="container-fluid">#}
 {#	<h3><a href="/">Lab Data Entry</a></h3>#}
 {#				</div>#}
-
 
 
 </body>

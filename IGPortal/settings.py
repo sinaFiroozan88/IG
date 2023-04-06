@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     'silis',
     'block_water_acid',
     'ultrax_calibration',
-    'avg_test_production'
+    'avg_test_production',
 
 ]
 

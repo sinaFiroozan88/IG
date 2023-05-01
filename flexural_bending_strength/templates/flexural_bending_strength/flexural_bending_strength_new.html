@@ -1,0 +1,116 @@
+{% extends 'shared/_base.html' %}
+{% load static %}
+{% block title %}
+    <title>flexural bending strength</title>
+{% endblock %}
+
+{% block header_ref %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lab_edit1.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <div>
+            <div class="d-flex new-part">
+                <div class="d-flex flex-column mt-2 mr-3 new-part">
+                    <div>
+                        <div class="test2 text-info text-center"><strong>کلی</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">ثبت کننده</label>
+                                    <p>{{ form.author }}</p>
+                                    {% for error in form.author.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_elec_consumption">سال</label>
+                                    <p>{{ form.year }}</p>
+                                    {% for error in form.year.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_elec_consumption">ماه</label>
+                                    <p>{{ form.month }}</p>
+                                    {% for error in form.month.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gasoil_consumption">روز</label>
+                                    <p>{{ form.day }}</p>
+                                    {% for error in form.day.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gasoil_consumption">روز</label>
+                                    <p>{{ form.code }}</p>
+                                    {% for error in form.code.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test2 text-info text-center"><strong>flexural bending strength</strong></div>
+                        <div class="d-flex flex-wrap bg-light pb-0">
+                            <div class="d-inline-flex flex-wrap">
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">f flex</label>
+                                    <p>{{ form.f_flex }}</p>
+                                    {% for error in form.f_flex.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">fm flex</label>
+                                    <p>{{ form.fm_flex }}</p>
+                                    {% for error in form.fm_flex.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">flexural strength</label>
+                                    <p>{{ form.flexural_strength }}</p>
+                                    {% for error in form.flexural_strength.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">f compress</label>
+                                    <p>{{ form.f_compress }}</p>
+                                    {% for error in form.f_compress.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">fm compress</label>
+                                    <p>{{ form.fm_compress }}</p>
+                                    {% for error in form.fm_compress.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="d-block m-1 p-0 flex-shrink-0">
+                                    <label for="id_gas_consumption">compressive strength</label>
+                                    <p>{{ form.compressive_strength }}</p>
+                                    {% for error in form.compressive_strength.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div align="center">
+            <button type="submit" class="btn-lg">Save</button>
+        </div>
+        <br>
+    </form>
+{% endblock %}

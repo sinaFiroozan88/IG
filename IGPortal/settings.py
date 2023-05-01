@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'block_water_acid',
     'ultrax_calibration',
     'avg_test_production',
-
+    'flexural_bending_strength',
 ]
 
 MIDDLEWARE = [

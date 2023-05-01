@@ -39,6 +39,7 @@ urlpatterns = [
     path('ultrax-calibration/', include('ultrax_calibration.urls')),
     path('ten-sieve-analyse/', include('ten_sieve_analysis.urls')),
     path('avg-test-production/', include('avg_test_production.urls')),
+    path('flexural-bending-strength/', include('flexural_bending_strength.urls')),
 ]
 
 if settings.DEBUG:

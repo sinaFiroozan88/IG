@@ -1,39 +1,45 @@
 {% extends 'shared/_base.html' %}
 
 {% block content %}
-  <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}"><span>Delete</span></a>
-  <a class="btn btn-primary" type="succeed" href="{% url 'post_edit' pk=post.pk %}">ٍEdit</a>
-  <div class="post">
-    {% if post.published_date %}
-      <div class="date">
-        {{ post.published_date }}
-      </div>
-    {% else %}
-      <a class="btn btn-primary" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-    {% endif %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.text|linebreaksbr }}</p>
-  {{ post.image }}
-  </div>
-
-  {#  comments tags for template#}
-  <hr>
-  <a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
-  <hr>
-  {% for comment in post.comments.all %}
-      {% if user.is_authenticated or comment.approved_comment %}
-        <div class="comment">
-          <div class="date">{{ comment.created_date }}</div>
-          {% if not comment.approved_comment %}
-            <a class="btn btn-primary" href="{% url 'comment_remove' pk=comment.pk %}"><span>remove</span></a>
-            <a class="btn btn-primary" href="{% url 'comment_approve' pk=comment.pk %}"><span>approve</span></a>
-          {% endif %}
-          <strong>{{ comment.author }}</strong>
-          <p>{{ comment.text|linebreaks }}</p>
-        </div>
-        <hr>
-      {% endif %}
-  {% empty %}
-      <p>No comments here yet :(</p>
-  {% endfor %}
+    <div class="post" style="margin: 20px">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+        {{ post.image }}
+    </div>
+    <hr>
+    <div style="display: flex; justify-content: center">
+    <a style="width: 45%; margin-right: 1%;" class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}"><span>Delete</span></a>
+    <a style="width: 45%; margin-left: 1%;" class="btn btn-primary" type="succeed" href="{% url 'post_edit' pk=post.pk %}">ٍEdit</a>
+    </div>
+    {#  comments tags for template#}
+    <br>
+    <div style="display: flex; justify-content: center;">
+    <a style="width: 90%" class="btn btn-primary" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    </div>
+    <hr>
+    <div style="margin: 20px; padding: 10px; border-radius: 8px; width: 50%">
+    {% for comment in post.comments.all %}
+        {% if user.is_authenticated or comment.approved_comment %}
+            <div class="comment">
+                <div class="date">{{ comment.created_date }}</div>
+                {% if not comment.approved_comment %}
+                    <a class="btn btn-primary" href="{% url 'comment_remove' pk=comment.pk %}"><span>remove</span></a>
+                    <a class="btn btn-primary" href="{% url 'comment_approve' pk=comment.pk %}"><span>approve</span></a>
+                {% endif %}
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.text|linebreaks }}</p>
+            </div>
+            <hr>
+        {% endif %}
+    {% empty %}
+        <p>No comments here yet</p>
+    {% endfor %}
+    </div>
 {% endblock %}

@@ -21,6 +21,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = {'author', 'text', }
+        widgets = {
+            'author': forms.Select(),
+            'text': forms.Textarea(),
+        }
 
 # class CreateContactForm(forms.Form):
 #     full_name = forms.CharField(

@@ -1,10 +1,36 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
 {% block content %}
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">
-      {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+    <h1 style="font-family: Roboto, Lucida Grande, DejaVu Sans, Bitstream Vera Sans, Verdana, Arial, sans-serif">New
+        comment</h1>
+    <div style="font-family: Roboto, Lucida Grande, DejaVu Sans, Bitstream Vera Sans, Verdana, Arial, sans-serif; display: flex;
+    justify-content: center; width: 100%">
+        <form style="width: 100%;" method="POST" class="post-form">
+            {% csrf_token %}
+            <h5>author</h5>
+            {{ form.author }}
+            <hr>
+            <h5>text</h5>
+            {{ form.text }}
+            <button style="display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; background-color: #007bff; border-color: #007bff; width: 90%"
+                    type="submit"
+                    class="btn btn-secondary">Send
+            </button>
+        </form>
+    </div>
 {% endblock %}
